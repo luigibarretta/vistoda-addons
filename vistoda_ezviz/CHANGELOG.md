@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+- Restore private permissions on the EZVIZ session before the app starts.
+
 ## 0.3.1
 
 - Preserve writable `/data` ownership across Supervisor backup restores.

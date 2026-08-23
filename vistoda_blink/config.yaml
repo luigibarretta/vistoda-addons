@@ -1,0 +1,18 @@
+name: Vistoda Blink
+version: 0.4.0
+slug: vistoda_blink
+description: Standalone Blink control, snapshots, clips and bounded live media
+url: https://github.com/luigibarretta/vistoda-blink
+arch:
+  - amd64
+  - aarch64
+startup: services
+init: false
+hassio_api: true
+discovery:
+  - blink_live_bridge
+ports:
+  8099/tcp: null
+ports_description:
+  8099/tcp: Private Vistoda Blink engine API
+image: ghcr.io/luigibarretta/vistoda-blink-addon

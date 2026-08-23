@@ -1,0 +1,4 @@
+configuration: {}
+network:
+  8099/tcp: API privata del motore Vistoda Blink
+

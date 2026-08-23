@@ -1,0 +1,10 @@
+configuration:
+  alias:
+    name: Alias telecamera
+    description: Nome breve e stabile usato per le entità Home Assistant, ad esempio ingresso.
+  camera_serial:
+    name: Seriale telecamera EZVIZ
+    description: Seriale mostrato da EZVIZ; non è il codice di verifica.
+network:
+  8765/tcp: API privata di Vistoda EZVIZ
+

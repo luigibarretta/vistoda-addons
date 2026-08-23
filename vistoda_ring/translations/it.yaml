@@ -1,0 +1,7 @@
+configuration:
+  alias:
+    name: Alias dispositivo
+    description: Nome breve e stabile usato per le entità Home Assistant, ad esempio ingresso.
+network:
+  8775/tcp: API privata di Vistoda Ring
+

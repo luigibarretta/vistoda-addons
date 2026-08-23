@@ -1,0 +1,10 @@
+configuration:
+  alias:
+    name: Camera alias
+    description: Short stable name used for Home Assistant entities, such as front-door.
+  camera_serial:
+    name: EZVIZ camera serial
+    description: Device serial shown by EZVIZ; this is not the verification code.
+network:
+  8765/tcp: Private Vistoda EZVIZ API
+

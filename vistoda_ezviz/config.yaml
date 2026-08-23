@@ -1,0 +1,24 @@
+name: Vistoda EZVIZ
+version: 0.3.0
+slug: vistoda_ezviz
+description: EZVIZ VTM/VTDU snapshots, live media and bounded recordings
+url: https://github.com/luigibarretta/vistoda-ezviz
+arch:
+  - amd64
+  - aarch64
+startup: services
+init: false
+hassio_api: true
+discovery:
+  - media_bridge
+ports:
+  8765/tcp: null
+ports_description:
+  8765/tcp: Private Vistoda EZVIZ API
+options:
+  alias: front-door
+  camera_serial: ""
+schema:
+  alias: match(^[A-Za-z0-9_-]+$)
+  camera_serial: str
+image: ghcr.io/luigibarretta/vistoda-ezviz-addon

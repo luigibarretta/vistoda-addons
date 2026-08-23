@@ -1,0 +1,4 @@
+configuration: {}
+network:
+  8099/tcp: Private Vistoda Blink engine API
+

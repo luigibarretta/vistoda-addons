@@ -1,0 +1,22 @@
+name: Vistoda Ring
+version: 0.8.0
+slug: vistoda_ring
+description: Ring Intercom controls, full-duplex audio and local recordings
+url: https://github.com/luigibarretta/vistoda-ring
+arch:
+  - amd64
+  - aarch64
+startup: services
+init: false
+hassio_api: true
+discovery:
+  - media_bridge
+ports:
+  8775/tcp: null
+ports_description:
+  8775/tcp: Private Vistoda Ring API
+options:
+  alias: entrance
+schema:
+  alias: match(^[A-Za-z0-9_-]+$)
+image: ghcr.io/luigibarretta/vistoda-ring-addon

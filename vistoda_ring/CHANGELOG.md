@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.1
+
+- Preserve writable `/data` ownership across Supervisor backup restores.
+
 ## 0.8.0
 
 - Add private Supervisor discovery and native Home Assistant enrollment.

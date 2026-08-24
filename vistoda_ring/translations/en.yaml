@@ -2,6 +2,10 @@ configuration:
   alias:
     name: Device alias
     description: Short stable name used for Home Assistant entities, such as entrance.
+  recording_storage:
+    name: Recording storage
+    description: >-
+      Destination for local calls: private (/data/recordings), public app config,
+      Home Assistant media, or Home Assistant share. Existing files migrate safely.
 network:
   8775/tcp: Private Vistoda Ring API
-

@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.1
+
+- Keep the 0.9.0 selectable recording archive contract.
+- Simplify the relay session lifecycle without changing its wire behavior.
+
+## 0.9.0
+
+- Add private, app-config, media and share destinations for Ring recordings.
+- Migrate generated archive files with copy verification and fail-closed conflicts.
+- Publish the effective display path to the authenticated Vistoda panel.
+
 ## 0.8.3
 
 - Add privacy-safe request correlation and classified HTTP failure logs.

@@ -13,6 +13,10 @@ persistent `/data` volume. It publishes a private Supervisor discovery message
 to the Vistoda integrations. Users never need to enter a bridge URL, port or API
 token in the normal Home Assistant setup flow.
 
+Vistoda Ring keeps `/data/recordings` as its safe default and can move the local
+call archive to its public app-config folder, Home Assistant media, or share.
+The app verifies every copied file before retiring it from the old destination.
+
 ## Install
 
 [![Install Vistoda through HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=luigibarretta&repository=vistoda-home-assistant&category=integration)

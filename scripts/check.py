@@ -26,6 +26,14 @@ def check_app(name: str) -> None:
     require("hassio_api: true" in config, f"{name}: Supervisor discovery unavailable")
     require("tcp: null" in config, f"{name}: provider port must stay private")
     require((directory / "DOCS.md").is_file(), f"{name}: DOCS.md missing")
+    if name == "vistoda_ring":
+        require("recording_storage: private" in config, "Ring storage default missing")
+        require(
+            "recording_storage: list(private|addon_config|media|share)" in config,
+            "Ring storage choices missing",
+        )
+        for mount in ("addon_config", "media", "share"):
+            require(f"  - type: {mount}\n    read_only: false" in config, f"{mount} RW map missing")
     for language in ("en", "it"):
         require(
             (directory / "translations" / f"{language}.yaml").is_file(),

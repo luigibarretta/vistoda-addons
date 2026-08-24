@@ -5,7 +5,18 @@ configuration:
   recording_storage:
     name: Archivio registrazioni
     description: >-
-      Destinazione delle chiamate locali: privata (/data/recordings), configurazione
-      pubblica dell'app, media o share di Home Assistant. I file esistenti vengono migrati.
+      Scegli private per /data/recordings (privato e incluso nei backup dell'app);
+      addon_config per /addon_configs/10aad50a_vistoda_ring/recordings; media per
+      /media/vistoda-ring; share per /share/vistoda-ring. Media e share sono locali:
+      non diventano NFS/Samba da soli. Scegli network per un archivio di rete montato
+      da Home Assistant OS. I file esistenti vengono migrati con verifica.
+  recording_network_mount:
+    name: Percorso network storage HAOS
+    description: >-
+      Usato solo con network. Prima aggiungi una condivisione NFS o Samba da
+      Impostazioni > Sistema > Archiviazione, con utilizzo Media o Share; inserisci
+      qui il mount risultante, ad esempio /media/ring-archive oppure
+      /share/ring-archive. Vistoda salva nella sottocartella vistoda-ring e rifiuta
+      percorsi locali o mount non disponibili.
 network:
   8775/tcp: API privata di Vistoda Ring

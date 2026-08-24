@@ -1,5 +1,5 @@
 name: Vistoda Ring
-version: 0.9.1
+version: 0.10.0
 slug: vistoda_ring
 description: Ring Intercom controls, full-duplex audio and local recordings
 url: https://github.com/luigibarretta/vistoda-ring
@@ -27,5 +27,6 @@ options:
   recording_storage: private
 schema:
   alias: match(^[A-Za-z0-9_-]+$)
-  recording_storage: list(private|addon_config|media|share)
+  recording_storage: list(private|addon_config|media|share|network)
+  recording_network_mount: str?
 image: ghcr.io/luigibarretta/vistoda-ring-addon

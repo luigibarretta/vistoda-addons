@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+- Explain every recording destination and its exact Home Assistant OS path.
+- Add fail-closed NFS/Samba storage through HAOS-managed Media or Share mounts.
+- Distinguish local `/share` from network storage in configuration and docs.
+
 ## 0.9.1
 
 - Keep the 0.9.0 selectable recording archive contract.

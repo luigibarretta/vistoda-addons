@@ -14,8 +14,10 @@ to the Vistoda integrations. Users never need to enter a bridge URL, port or API
 token in the normal Home Assistant setup flow.
 
 Vistoda Ring keeps `/data/recordings` as its safe default and can move the local
-call archive to its public app-config folder, Home Assistant media, or share.
-The app verifies every copied file before retiring it from the old destination.
+call archive to its public app-config folder, Home Assistant media/share, or a
+live NFS/Samba storage mounted by HAOS. The app verifies every copied file
+before retiring it from the old destination and rejects unavailable network
+mounts instead of silently writing to local storage.
 
 ## Install
 

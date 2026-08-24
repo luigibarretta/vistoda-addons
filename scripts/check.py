@@ -26,11 +26,25 @@ def check_app(name: str) -> None:
     require("hassio_api: true" in config, f"{name}: Supervisor discovery unavailable")
     require("tcp: null" in config, f"{name}: provider port must stay private")
     require((directory / "DOCS.md").is_file(), f"{name}: DOCS.md missing")
+    for asset, expected_size in (("icon.png", 128), ("logo.png", 300)):
+        image = (directory / asset).read_bytes()
+        require(image.startswith(b"\x89PNG\r\n\x1a\n"), f"{name}: {asset} is not PNG")
+        width = int.from_bytes(image[16:20], "big")
+        height = int.from_bytes(image[20:24], "big")
+        require(
+            width == height == expected_size,
+            f"{name}: {asset} must be {expected_size}px square",
+        )
+        require(len(image) <= 2 * 1024 * 1024, f"{name}: {asset} exceeds 2 MiB")
     if name == "vistoda_ring":
         require("recording_storage: private" in config, "Ring storage default missing")
         require(
-            "recording_storage: list(private|addon_config|media|share)" in config,
+            "recording_storage: list(private|addon_config|media|share|network)" in config,
             "Ring storage choices missing",
+        )
+        require(
+            "recording_network_mount: str?" in config,
+            "Ring network mount missing",
         )
         for mount in ("addon_config", "media", "share"):
             require(f"  - type: {mount}\n    read_only: false" in config, f"{mount} RW map missing")

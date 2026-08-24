@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.3
+
+- Add privacy-safe request correlation and classified HTTP failure logs.
+
 ## 0.8.2
 
 - Restore private permissions on the Ring session before the app starts.

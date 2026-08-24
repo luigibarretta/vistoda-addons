@@ -12,3 +12,6 @@ configuration fields.
 Port 8775 is private by default. Use the standalone Vistoda Ring container for
 advanced SceneTrove or native-client deployments that require a remote bridge.
 
+Failed API requests are correlated by a server-generated `x-request-id` without
+logging query values, credentials, device aliases or request bodies. Include
+that response ID when reporting a reproducible app error.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.5
+
+- Reuse the provider's validated bootstrap state so Home Assistant startup does not duplicate a slow cloud refresh.
+
 ## 0.4.4
 
 - Report the provider camera inventory in health independently from active live-stream hubs.

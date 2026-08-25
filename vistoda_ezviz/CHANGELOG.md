@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.3
+
+- Silence expected readiness-probe failures during bounded startup.
+- Sign and attest the immutable multi-architecture image digest.
+
 ## 0.3.2
 
 - Restore private permissions on the EZVIZ session before the app starts.

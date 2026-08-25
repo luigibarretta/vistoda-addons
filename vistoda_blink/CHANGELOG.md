@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.3
+
+- Classify the optional Sync Module endpoint and stop warning on its expected 404.
+- Silence expected readiness-probe failures during bounded startup.
+- Sign and attest the immutable multi-architecture image digest.
+
 ## 0.4.2
 
 - Restore private permissions on sealed Blink credentials before app startup.

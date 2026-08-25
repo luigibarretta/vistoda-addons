@@ -8,6 +8,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 APPS = ("vistoda_blink", "vistoda_ezviz", "vistoda_ring")
+EXPECTED_VERSIONS = {
+    "vistoda_blink": "0.4.3",
+    "vistoda_ezviz": "0.3.3",
+    "vistoda_ring": "0.11.0",
+}
 IMAGE = re.compile(r"^image: ghcr\.io/luigibarretta/vistoda-[a-z]+-addon$", re.MULTILINE)
 VERSION = re.compile(r"^version: [0-9]+\.[0-9]+\.[0-9]+$", re.MULTILINE)
 
@@ -21,6 +26,11 @@ def check_app(name: str) -> None:
     directory = ROOT / name
     config = (directory / "config.yaml").read_text(encoding="utf-8")
     require(VERSION.search(config) is not None, f"{name}: invalid version")
+    version = re.search(r"^version: ([0-9]+\.[0-9]+\.[0-9]+)$", config, re.MULTILINE)
+    require(version is not None, f"{name}: version missing")
+    require(version.group(1) == EXPECTED_VERSIONS[name], f"{name}: release matrix drift")
+    changelog = (directory / "CHANGELOG.md").read_text(encoding="utf-8")
+    require(f"## {EXPECTED_VERSIONS[name]}" in changelog, f"{name}: changelog drift")
     require(IMAGE.search(config) is not None, f"{name}: invalid image")
     require("  - amd64\n  - aarch64\n" in config, f"{name}: multiarch missing")
     require("hassio_api: true" in config, f"{name}: Supervisor discovery unavailable")

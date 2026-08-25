@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.0
+
+- Add the native encrypted FCM listener for Intercom ding and unlock events.
+- Expose a private cursor/long-poll contract plus aggregate push health metrics.
+- Reset consumers safely across app/Core restarts without replaying queued calls.
+- Keep the official Home Assistant Ring event source as a deduplicated canary fallback.
+- Sign and attest the immutable multi-architecture image digest.
+
 ## 0.10.0
 
 - Explain every recording destination and its exact Home Assistant OS path.

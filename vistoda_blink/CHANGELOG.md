@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.4
+
+- Report the provider camera inventory in health independently from active live-stream hubs.
+
 ## 0.4.3
 
 - Classify the optional Sync Module endpoint and stop warning on its expected 404.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.1
+
+- Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,
+  fail-closed token storage and bounded readiness.
+- Preserve private permissions on restored Ring session state at startup.
+
 ## 0.11.0
 
 - Add the native encrypted FCM listener for Intercom ding and unlock events.

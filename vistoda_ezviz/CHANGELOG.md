@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.4
+
+- Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,
+  fail-closed token storage and bounded readiness.
+- Preserve private permissions on restored EZVIZ session state at startup.
+
 ## 0.3.3
 
 - Silence expected readiness-probe failures during bounded startup.

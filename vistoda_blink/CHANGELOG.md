@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.6
+
+- Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,
+  fail-closed token storage, bounded readiness and engine lifecycle handling.
+
 ## 0.4.5
 
 - Reuse the provider's validated bootstrap state so Home Assistant startup does not duplicate a slow cloud refresh.

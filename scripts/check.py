@@ -9,9 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 APPS = ("vistoda_blink", "vistoda_ezviz", "vistoda_ring")
 EXPECTED_VERSIONS = {
-    "vistoda_blink": "0.4.5",
-    "vistoda_ezviz": "0.3.3",
-    "vistoda_ring": "0.11.0",
+    "vistoda_blink": "0.4.6",
+    "vistoda_ezviz": "0.3.4",
+    "vistoda_ring": "0.11.1",
 }
 IMAGE = re.compile(r"^image: ghcr\.io/luigibarretta/vistoda-[a-z]+-addon$", re.MULTILINE)
 VERSION = re.compile(r"^version: [0-9]+\.[0-9]+\.[0-9]+$", re.MULTILINE)

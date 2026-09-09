@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.1
+
+- Trust the native `active` and `memory_full` Sync Module states even when
+  Blink's compatibility `enabled` flag lags behind.
+- Parse both numeric and string private Ring device IDs.
+- Build signaling identity from the shared `ringUserId` and return bounded,
+  secret-free WebSocket failure diagnostics without starting media.
+
 ## 0.9.0
 
 - Adds read-only Sync Module USB status, clip inventory and authenticated

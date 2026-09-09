@@ -17,7 +17,9 @@ enrolled route; no empty or guessed configuration is displayed.
 Vistoda can also record finite 15, 30 or 60 second clips from the shared live
 stream. Its standalone archive is distinct from Blink cloud clips and Sync
 Module USB storage. Download, confirmed deletion and verified NFS backup are
-managed from the Vistoda camera page through Home Assistant.
+managed from the Vistoda camera page through Home Assistant. The Sync Module
+USB archive has a separate read-only list/download view; Vistoda deliberately
+does not expose provider delete, eject, format or mount operations.
 
 The app API remains private to the Supervisor network. Do not publish port
 8099 unless an advanced external consumer has a separately reviewed need.

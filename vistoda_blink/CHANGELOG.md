@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0
+
+- Adds read-only Sync Module USB status, clip inventory and authenticated
+  downloads without delete, eject, format or mount controls.
+- Adopts the current Blink v4 homescreen and its audio capability fields.
+- Adds a signaling-only WebRTC 4.1 authentication probe; full-duplex media
+  remains gated until SDP, ICE, uplink and recovery pass a live canary.
+
 ## 0.8.0
 
 - Records finite 15–60 second standalone clips from the shared live stream.

@@ -8,6 +8,11 @@ code sent by Blink.
 The official Blink integration is not required. Vistoda owns one independent
 rotating session and exposes native Home Assistant entities and services.
 
+Vistoda reads the real provider state for each supported camera setting. On
+verified v1 cameras it also manages the native 20×15 activity grid and up to
+two privacy zones with revision checks, provider read-back and rollback. Zone
+controls stay unavailable on Owl/Mini v2 devices while Blink rejects the
+enrolled route; no empty or guessed configuration is displayed.
+
 The app API remains private to the Supervisor network. Do not publish port
 8099 unless an advanced external consumer has a separately reviewed need.
-

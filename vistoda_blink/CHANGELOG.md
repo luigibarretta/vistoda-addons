@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0
+
+- Adds revision-checked native activity and privacy zone controls for verified
+  v1 cameras, with provider read-back and automatic rollback.
+- Exposes the Blink speaker-volume scale from 1 to 8 on supported Mini cameras.
+- Rejects unsupported Owl/Mini v2 zone schemas instead of showing fabricated
+  defaults.
+
 ## 0.6.0
 
 - Adds model-aware camera name, IR, status LED, rotation, Photo Capture and

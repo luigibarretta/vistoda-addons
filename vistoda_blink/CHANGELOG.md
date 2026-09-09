@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.2
+
+- Adds an administrator-only, value-redacted camera capability inventory.
+- Keeps camera-setting diagnostics bounded to provider field names and JSON types.
+
 ## 0.5.1
 
 - Add a redacted, revision-checked camera-settings API for the controls Vistoda

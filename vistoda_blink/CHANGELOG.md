@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.7
+
+- Restore every Blink entity on Home Assistant 2026.9 by using the scoped
+  device-registry parent ID contract introduced in Core 2026.8.
+
 ## 0.4.6
 
 - Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,

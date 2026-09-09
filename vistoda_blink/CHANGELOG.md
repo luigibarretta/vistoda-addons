@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.2
+
+- Install the process-level Ring crypto provider before the REST and native
+  WebSocket TLS clients coexist, preventing a signaling probe process abort.
+
 ## 0.9.1
 
 - Trust the native `active` and `memory_full` Sync Module states even when

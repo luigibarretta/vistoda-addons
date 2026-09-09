@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.3
+
+- Adds safe model-feature probes and value-redacted v2 zone schema discovery.
+- Preserves the private, authenticated provider boundary for all diagnostics.
+
 ## 0.5.2
 
 - Adds an administrator-only, value-redacted camera capability inventory.

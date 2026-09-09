@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0
+
+- Adds model-aware camera name, IR, status LED, rotation, Photo Capture and
+  temperature-alert controls with provider read-back verification.
+- Preserves stable camera aliases across provider-side renames.
+- Corrects Mini clip and retrigger fields and reports unverified controls as
+  read-only.
+- Discovers the camera-specific activity-zone schema without exposing mask
+  values.
+
 ## 0.5.4
 
 - Matches the current native Blink REST request-header contract.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+- Adds server-paginated Blink local and Sync Module USB inventories.
+- Supports signed playback, download and Home Assistant-managed NFS backup of
+  provider-owned USB clips without modifying the source support.
+
 ## 0.9.2
 
 - Install the process-level Ring crypto provider before the REST and native

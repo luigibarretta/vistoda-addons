@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+- Adds bounded server-side pagination to the standalone recording archive.
+- Adds on-demand fragmented-MP4 playback for browser clients while preserving
+  the canonical MPEG-PS recording artifact.
+
 ## 0.3.5
 
 - Exposes the bounded standalone recording inventory to Vistoda.

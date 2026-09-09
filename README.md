@@ -8,10 +8,11 @@ Assistant OS and Home Assistant Supervised. Install only the providers you use:
 - **Vistoda Ring** for Ring Intercom controls, full-duplex audio and local
   recordings.
 
-Blink and EZVIZ expose their own bounded standalone recording inventories.
-Vistoda Home Assistant can download, delete and copy those files to a verified
-Supervisor-owned NFS media mount without granting either provider app direct
-NAS access.
+Blink and EZVIZ expose server-paginated standalone recording inventories.
+Vistoda Home Assistant can play, download, delete and copy those files to a
+verified Supervisor-owned NFS media mount without granting either provider app
+direct NAS access. Blink's provider-owned USB clips are also paginated,
+playable, downloadable and NFS-backup capable without source-side mutation.
 
 Each app keeps its provider credentials and rotating sessions inside its own
 persistent `/data` volume. It publishes a private Supervisor discovery message

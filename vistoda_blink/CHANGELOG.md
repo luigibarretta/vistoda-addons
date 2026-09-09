@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.4
+
+- Matches the current native Blink REST request-header contract.
+- Restores model-aware v2 activity/privacy-zone capability probing.
+
 ## 0.5.3
 
 - Adds safe model-feature probes and value-redacted v2 zone schema discovery.

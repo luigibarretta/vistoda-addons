@@ -1,7 +1,7 @@
 name: Vistoda EZVIZ
-version: 0.3.4
+version: 0.3.5
 slug: vistoda_ezviz
-description: EZVIZ VTM/VTDU snapshots, live media and bounded recordings
+description: EZVIZ snapshots, live media and standalone recordings
 url: https://github.com/luigibarretta/vistoda-ezviz
 arch:
   - amd64

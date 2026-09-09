@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0
+
+- Records finite 15–60 second standalone clips from the shared live stream.
+- Exposes a bounded, checksummed per-camera archive for Vistoda download,
+  deletion and Home Assistant-managed NFS backup.
+- Replaces the failing Blink cloud record action that produced false motion
+  notifications.
+
 ## 0.7.0
 
 - Adds revision-checked native activity and privacy zone controls for verified

@@ -12,3 +12,7 @@ inside the app data volume.
 Port 8765 remains private. Use the standalone Vistoda EZVIZ container when an
 advanced SceneTrove deployment needs direct access to the media bridge.
 
+Vistoda can record finite 15, 30 or 60 second clips from the live stream. This
+standalone archive is separate from SceneTrove and the camera microSD card;
+download, confirmed deletion and verified NFS backup are managed through Home
+Assistant.

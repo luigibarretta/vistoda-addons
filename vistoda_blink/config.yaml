@@ -1,7 +1,7 @@
 name: Vistoda Blink
-version: 0.7.0
+version: 0.8.0
 slug: vistoda_blink
-description: Standalone Blink control, snapshots, clips and bounded live media
+description: Blink control, snapshots, live media and standalone recordings
 url: https://github.com/luigibarretta/vistoda-blink
 arch:
   - amd64

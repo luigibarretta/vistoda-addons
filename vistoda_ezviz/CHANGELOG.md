@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.5
+
+- Exposes the bounded standalone recording inventory to Vistoda.
+- Keeps Vistoda recordings independent from SceneTrove and ready for verified
+  Home Assistant-managed NFS backup.
+
 ## 0.3.4
 
 - Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,

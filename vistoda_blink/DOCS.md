@@ -14,5 +14,10 @@ two privacy zones with revision checks, provider read-back and rollback. Zone
 controls stay unavailable on Owl/Mini v2 devices while Blink rejects the
 enrolled route; no empty or guessed configuration is displayed.
 
+Vistoda can also record finite 15, 30 or 60 second clips from the shared live
+stream. Its standalone archive is distinct from Blink cloud clips and Sync
+Module USB storage. Download, confirmed deletion and verified NFS backup are
+managed from the Vistoda camera page through Home Assistant.
+
 The app API remains private to the Supervisor network. Do not publish port
 8099 unless an advanced external consumer has a separately reviewed need.

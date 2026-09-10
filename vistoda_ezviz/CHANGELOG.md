@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- Publishes bounded private-spool path and capacity metadata for Vistoda.
+- Supports the Vistoda custom-list and selected-deletion archive experience.
+- Keeps provider snapshot refresh behind an explicit panel action.
+
 ## 0.4.0
 
 - Adds bounded server-side pagination to the standalone recording archive.

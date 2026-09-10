@@ -12,7 +12,9 @@ Blink and EZVIZ expose server-paginated standalone recording inventories.
 Vistoda Home Assistant can play, download, delete and copy those files to a
 verified Supervisor-owned NFS media mount without granting either provider app
 direct NAS access. Blink's provider-owned USB clips are also paginated,
-playable, downloadable and NFS-backup capable without source-side mutation.
+playable, downloadable and NFS-backup capable. Administrators can delete exact
+current-manifest USB clips; compatible media can be formatted only behind an
+exact typed confirmation. Vistoda never exposes mount or eject operations.
 
 Each app keeps its provider credentials and rotating sessions inside its own
 persistent `/data` volume. It publishes a private Supervisor discovery message

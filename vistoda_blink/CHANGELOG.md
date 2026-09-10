@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.11.0
+
+- Adds exact current-manifest USB clip deletion for administrators.
+- Shows the available-space percentage and compatible-media formatting behind
+  a destructive warning and exact typed confirmation.
+- Publishes the standalone archive's actual private add-on path to Vistoda.
+
 ## 0.10.0
 
 - Adds server-paginated Blink local and Sync Module USB inventories.

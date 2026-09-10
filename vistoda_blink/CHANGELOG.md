@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.12.5
+
+- Resolves Blink WebRTC signaling with the canonical shared Ring identity
+  returned by the provider instead of reusing Blink's unrelated account ID.
+- Reconciles an encrypted stored identity when the provider rotates or corrects
+  it, while keeping identifiers and credentials out of logs and diagnostics.
+
 ## 0.12.4
 
 - Relays the provider's terminal WebRTC event before closing the local socket,

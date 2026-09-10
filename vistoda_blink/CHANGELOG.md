@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.12.4
+
+- Relays the provider's terminal WebRTC event before closing the local socket,
+  preserving its safe numeric reason code for diagnostics and user feedback.
+- Records the provider close code in privacy-safe lifecycle telemetry without
+  logging device IDs, media negotiation payloads or credentials.
+
 ## 0.12.3
 
 - Preserves provider heartbeat updates even when they do not produce a browser

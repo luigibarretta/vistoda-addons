@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.13.0
+
+- Matches Blink Android's one-way Cayuga-to-Walnut fallback for cameras without
+  a shared Ring device identity and provider legacy-device close code 38.
+- Keeps unrelated WebRTC failures fail-closed while allowing the user to open
+  the existing compatible IMMI live explicitly.
+- Releases the exclusive WebRTC publisher before Home Assistant starts the
+  compatible live path and never exposes provider credentials or close text.
+
 ## 0.12.5
 
 - Resolves Blink WebRTC signaling with the canonical shared Ring identity

@@ -1,7 +1,7 @@
 name: Vistoda Ring
-version: 0.11.1
+version: 0.12.0
 slug: vistoda_ring
-description: Ring Intercom native calls, controls, full-duplex audio and local recordings
+description: Ring Intercom calls, controls, event history, alerts and local recordings
 url: https://github.com/luigibarretta/vistoda-ring
 arch:
   - amd64

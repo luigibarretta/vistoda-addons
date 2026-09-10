@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.0
+
+- Add bounded, server-paginated Ring Intercom event history for calls, Live View
+  sessions and entrance unlocks.
+- Publish safe device, Location and city labels without exposing account or
+  provider identifiers.
+- Keep native full-duplex audio, controls and local recordings unchanged.
+
 ## 0.11.1
 
 - Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,

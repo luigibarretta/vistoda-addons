@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.13.1
+
+- Publishes Blink Android 59.1's typed preferred live transport for each camera.
+- Selects Walnut before WebRTC signaling while the official Cayuga feature is
+  still `InProgress`, avoiding unsupported `SESSION_SETUP_FAILED` attempts.
+- Keeps the bounded Cayuga implementation gated for a future official rollout
+  without advertising unverified full-duplex audio.
+
 ## 0.13.0
 
 - Matches Blink Android's one-way Cayuga-to-Walnut fallback for cameras without

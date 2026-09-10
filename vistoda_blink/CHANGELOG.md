@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.3
+
+- Preserves provider heartbeat updates even when they do not produce a browser
+  event, preventing healthy WebRTC sessions from expiring after two pings.
+- Accepts the official pre-session close and microphone-override shapes while
+  continuing to reject mismatched session identities.
+- Adds value-free signaling lifecycle diagnostics without logging private
+  camera IDs, SDP, ICE candidates or credentials.
+
 ## 0.12.1
 
 - Adds owner-bound browser WebRTC live sessions with independent speaker and

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.1
+
+- Adds owner-bound browser WebRTC live sessions with independent speaker and
+  microphone controls, native SDP/ICE signaling and provider heartbeats.
+- Shares an exclusive per-camera lease with legacy live and recording paths,
+  plus a Vistoda-wide browser microphone lock shared with Ring.
+- Bounds negotiation, messages, candidates and teardown and fails closed on
+  unsupported Blink content encryption or microphone override cooldowns.
+
 ## 0.11.0
 
 - Adds exact current-manifest USB clip deletion for administrators.

@@ -1,5 +1,5 @@
 name: Vistoda EZVIZ
-version: 0.6.1
+version: 0.7.0
 slug: vistoda_ezviz
 description: EZVIZ snapshots, live media and standalone recordings
 url: https://github.com/luigibarretta/vistoda-ezviz
@@ -20,9 +20,15 @@ options:
   camera_serial: ""
   camera_channel: 1
   substream: false
+  cameras: []
 schema:
   alias: match(^[A-Za-z0-9_-]+$)
-  camera_serial: match(^[A-Za-z0-9]+$)
+  camera_serial: match(^[A-Za-z0-9]*$)
   camera_channel: int(1,256)
   substream: bool
+  cameras:
+    - alias: match(^[A-Za-z0-9_-]{1,64}$)
+      serial: match(^[A-Za-z0-9]+$)
+      channel: int(1,256)
+      substream: bool
 image: ghcr.io/luigibarretta/vistoda-ezviz-addon

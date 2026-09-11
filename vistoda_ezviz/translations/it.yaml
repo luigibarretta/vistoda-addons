@@ -11,5 +11,8 @@ configuration:
   substream:
     name: Preferisci stream a banda ridotta
     description: Usa lo stream secondario se disponibile. Utile su connessioni lente; lascia disattivato per la qualità migliore.
+  cameras:
+    name: Più telecamere
+    description: Lista facoltativa di 1–64 telecamere. Se compilata sostituisce alias, seriale, canale e stream singoli.
 network:
   8765/tcp: API privata di Vistoda EZVIZ

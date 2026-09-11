@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.0
+
+- Configures up to 64 cameras in one app while preserving the legacy
+  single-camera options and publishing one discovery device per alias.
+- Exposes an authenticated serial/channel identity contract so Vistoda can pin
+  every Home Assistant entry to the intended physical camera.
+- Validates configuration with an executable legacy/multi-camera renderer and
+  rejects duplicate aliases or physical sources before startup.
+
 ## 0.6.1
 
 - Fixes startup when the optional substream setting is disabled.

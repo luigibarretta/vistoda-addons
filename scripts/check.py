@@ -9,8 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 APPS = ("vistoda_blink", "vistoda_ezviz", "vistoda_ring")
 EXPECTED_VERSIONS = {
-    "vistoda_blink": "0.13.2",
-    "vistoda_ezviz": "0.6.1",
+    "vistoda_blink": "0.13.3",
+    "vistoda_ezviz": "0.7.0",
     "vistoda_ring": "0.13.0",
 }
 IMAGE = re.compile(r"^image: ghcr\.io/luigibarretta/vistoda-[a-z]+-addon$", re.MULTILINE)
@@ -61,9 +61,12 @@ def check_app(name: str) -> None:
         for mount in ("addon_config", "media", "share"):
             require(f"  - type: {mount}\n    read_only: false" in config, f"{mount} RW map missing")
     if name == "vistoda_ezviz":
-        require("camera_serial: match(^[A-Za-z0-9]+$)" in config, "EZVIZ serial must be non-empty")
+        require("cameras: []" in config, "EZVIZ legacy single-device default missing")
+        require("camera_serial: match(^[A-Za-z0-9]*$)" in config, "EZVIZ legacy serial must be optional")
         require("camera_channel: int(1,256)" in config, "EZVIZ channel must be bounded")
         require("substream: bool" in config, "EZVIZ substream option missing")
+        require("alias: match(^[A-Za-z0-9_-]{1,64}$)" in config, "EZVIZ camera aliases must be bounded")
+        require("serial: match(^[A-Za-z0-9]+$)" in config, "EZVIZ list serial must be non-empty")
     for language in ("en", "it"):
         require(
             (directory / "translations" / f"{language}.yaml").is_file(),

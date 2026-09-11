@@ -11,5 +11,8 @@ configuration:
   substream:
     name: Prefer lower-bandwidth stream
     description: Uses the secondary stream when the camera exposes it. Useful on slower links; leave disabled for best quality.
+  cameras:
+    name: Multiple cameras
+    description: Optional list of 1–64 cameras. When populated, it replaces the single alias, serial, channel and stream fields.
 network:
   8765/tcp: Private Vistoda EZVIZ API

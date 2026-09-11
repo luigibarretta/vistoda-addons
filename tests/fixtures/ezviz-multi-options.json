@@ -1,0 +1,10 @@
+{
+  "alias": "front-door",
+  "camera_serial": "",
+  "camera_channel": 1,
+  "substream": false,
+  "cameras": [
+    {"alias": "front-door", "serial": "TESTDEVICE123", "channel": 1, "substream": false},
+    {"alias": "garage", "serial": "TESTDEVICE456", "channel": 1, "substream": true}
+  ]
+}

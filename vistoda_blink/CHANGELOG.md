@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.13.3
+
+- Preserves stable camera aliases across provider inventory reorder and temporary
+  removal, without allowing a new camera to inherit a reserved identity.
+- Publishes each alarm panel's Blink network identity so multi-Sync-Module
+  controls remain scoped to the selected camera.
+
 ## 0.13.2
 
 - Restarts a consumed OTP challenge from credentials with clear EN/IT guidance.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.1
+
+- Fixes startup when the optional substream setting is disabled.
+- Validates both enabled and disabled boolean values before publishing discovery.
+
 ## 0.6.0
 
 - Adds exact NVR channel, substream and bounded full VTM inventory selection.

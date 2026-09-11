@@ -79,7 +79,7 @@ def verify(provider: str) -> dict:
         if "sha256:" + hashlib.sha256(child).hexdigest() != child_digest:
             raise SystemExit("Architecture manifest bytes do not match digest")
     immutable = f"{image}@{digest}"
-    workflow = f"{repository}/.github/workflows/release.yaml"
+    workflow = f"{repository}/.github/workflows/publish-addon.yaml"
     subprocess.run([
         "cosign", "verify", immutable,
         "--certificate-identity", f"https://github.com/{workflow}@refs/tags/{tag}",

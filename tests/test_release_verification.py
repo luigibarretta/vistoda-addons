@@ -59,12 +59,12 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(
             identity,
             "https://github.com/luigibarretta/vistoda-ring/"
-            ".github/workflows/release.yaml@refs/tags/"
+            ".github/workflows/publish-addon.yaml@refs/tags/"
             f"v{result['version']}",
         )
         self.assertEqual(
             provenance[provenance.index("--signer-workflow") + 1],
-            "luigibarretta/vistoda-ring/.github/workflows/release.yaml",
+            "luigibarretta/vistoda-ring/.github/workflows/publish-addon.yaml",
         )
         self.assertEqual(provenance[provenance.index("--source-digest") + 1], "b" * 40)
         self.assertIn("--deny-self-hosted-runners", provenance)

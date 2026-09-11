@@ -55,7 +55,17 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(result["revision"], "b" * 40)
         signature, provenance = [call.args[0] for call in run.call_args_list]
         self.assertIn("--certificate-identity", signature)
-        self.assertIn(f"refs/tags/v{result['version']}", signature[signature.index("--certificate-identity") + 1])
+        identity = signature[signature.index("--certificate-identity") + 1]
+        self.assertEqual(
+            identity,
+            "https://github.com/luigibarretta/vistoda-ring/"
+            ".github/workflows/release.yaml@refs/tags/"
+            f"v{result['version']}",
+        )
+        self.assertEqual(
+            provenance[provenance.index("--signer-workflow") + 1],
+            "luigibarretta/vistoda-ring/.github/workflows/release.yaml",
+        )
         self.assertEqual(provenance[provenance.index("--source-digest") + 1], "b" * 40)
         self.assertIn("--deny-self-hosted-runners", provenance)
 

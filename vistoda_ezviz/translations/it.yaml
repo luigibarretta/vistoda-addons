@@ -4,7 +4,12 @@ configuration:
     description: Nome breve e stabile usato per le entità Home Assistant, ad esempio ingresso.
   camera_serial:
     name: Seriale telecamera EZVIZ
-    description: Seriale mostrato da EZVIZ; non è il codice di verifica.
+    description: Obbligatorio prima dell'avvio. Inserisci lettere e numeri dalle informazioni dispositivo EZVIZ, non il codice di verifica.
+  camera_channel:
+    name: Canale telecamera o NVR
+    description: Usa 1 per una telecamera autonoma. Per un NVR inserisci il canale esatto indicato nelle informazioni dispositivo EZVIZ.
+  substream:
+    name: Preferisci stream a banda ridotta
+    description: Usa lo stream secondario se disponibile. Utile su connessioni lente; lascia disattivato per la qualità migliore.
 network:
   8765/tcp: API privata di Vistoda EZVIZ
-

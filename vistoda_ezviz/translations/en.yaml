@@ -4,7 +4,12 @@ configuration:
     description: Short stable name used for Home Assistant entities, such as front-door.
   camera_serial:
     name: EZVIZ camera serial
-    description: Device serial shown by EZVIZ; this is not the verification code.
+    description: Required before starting. Enter the letters and digits in EZVIZ device information, not the verification code.
+  camera_channel:
+    name: Camera or NVR channel
+    description: Use 1 for a standalone camera. For an NVR, enter the exact camera channel from EZVIZ device information.
+  substream:
+    name: Prefer lower-bandwidth stream
+    description: Uses the secondary stream when the camera exposes it. Useful on slower links; leave disabled for best quality.
 network:
   8765/tcp: Private Vistoda EZVIZ API
-

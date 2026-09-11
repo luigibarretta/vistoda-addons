@@ -8,6 +8,20 @@ Assistant OS and Home Assistant Supervised. Install only the providers you use:
 - **Vistoda Ring** for Ring Intercom controls, full-duplex audio and local
   recordings.
 
+## Capability and support matrix
+
+| Provider | Available scope | Release limitations |
+| --- | --- | --- |
+| Ring | Selected intercom controls/history, audio and local recordings | Experimental consumer APIs; vendor changes can affect operation. Physical actions require an exact device binding. |
+| Blink | Walnut/IMMI live, snapshots, clips and supported settings/storage | Full-duplex/Cayuga microphone support is not proven or enabled. Capabilities vary by model. |
+| EZVIZ | Snapshots, live/local recordings and limited encrypted RTP compatibility | No claim of universal encrypted-camera compatibility. Talk and camera microSD remain unavailable pending a usable Open Platform integration. |
+| Apple | Separate companion project | Excluded from this release and its readiness claims. |
+
+Home Assistant support starts at **2026.8.0**; integration runtime CI also tests
+**2026.9.1**. Keep the official vendor apps for account recovery and unsupported
+administration. Shipping the listed capabilities does not imply feature parity
+with every vendor application or device model.
+
 Blink and EZVIZ expose server-paginated standalone recording inventories.
 Vistoda Home Assistant can play, download, delete and copy those files to a
 verified Supervisor-owned NFS media mount without granting either provider app
@@ -20,6 +34,9 @@ Each app keeps its provider credentials and rotating sessions inside its own
 persistent `/data` volume. It publishes a private Supervisor discovery message
 to the Vistoda integrations. Users never need to enter a bridge URL, port or API
 token in the normal Home Assistant setup flow.
+Ring discovers multiple intercoms after login/SMS: leave `intercoms` empty and
+choose the actual entrance in Home Assistant. Stable `intercom-<id>` routes keep
+controls, history and recordings associated with their physical intercom.
 
 Vistoda Ring keeps `/data/recordings` as its safe default and can move the local
 call archive to its public app-config folder, Home Assistant media/share, or a
@@ -39,6 +56,9 @@ mounts instead of silently writing to local storage.
    store → Repositories.
 3. Install and start the Vistoda provider apps you need.
 4. Open Settings → Devices & services and complete the discovered Vistoda flow.
+
+Installation recovery, updates, rollback, restore and uninstall:
+[English guide](OPERATIONS.md) · [Guida italiana](OPERATIONS.it.md).
 
 Repository URL:
 

@@ -1,7 +1,13 @@
 configuration:
   alias:
     name: Device alias
-    description: Short stable name used for Home Assistant entities, such as entrance.
+    description: Bootstrap alias or preferred advanced alias; enrolled devices are discovered automatically.
+  intercoms:
+    name: Intercoms
+    description: >-
+      Leave empty for automatic discovery after Ring login, even with multiple
+      entrances. Advanced only: override aliases using unique verified numeric
+      Ring device_id values. Never use a location ID or guessed ID.
   recording_storage:
     name: Recording storage
     description: >-

@@ -1,4 +1,6 @@
 {
   "alias": "front-door",
-  "camera_serial": "TESTDEVICE123"
+  "camera_serial": "TESTDEVICE123",
+  "camera_channel": 2,
+  "substream": true
 }

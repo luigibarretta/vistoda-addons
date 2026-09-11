@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.2
+
+- Restarts a consumed OTP challenge from credentials with clear EN/IT guidance.
+- Adopts the hardened shared provider lifecycle, immutable release and license gates.
+
 ## 0.13.1
 
 - Publishes Blink Android 59.1's typed preferred live transport for each camera.

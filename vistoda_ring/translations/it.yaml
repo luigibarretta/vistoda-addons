@@ -1,7 +1,13 @@
 configuration:
   alias:
     name: Alias dispositivo
-    description: Nome breve e stabile usato per le entità Home Assistant, ad esempio ingresso.
+    description: Alias iniziale o preferito avanzato; i citofoni autenticati sono scoperti automaticamente.
+  intercoms:
+    name: Citofoni
+    description: >-
+      Lascia vuoto per la discovery automatica dopo il login Ring, anche con più
+      ingressi. Solo avanzato: imposta alias personalizzati con device_id numerici
+      Ring distinti e verificati. Non usare ID di posizione o inventati.
   recording_storage:
     name: Archivio registrazioni
     description: >-

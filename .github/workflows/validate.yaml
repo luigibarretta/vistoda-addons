@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  workflow_call:
   schedule:
     - cron: "11 5 * * 1"
 
@@ -29,6 +30,7 @@ jobs:
         with:
           python-version: "3.13"
       - run: python scripts/check.py
+      - run: python -m unittest discover -s tests -p 'test_*.py'
 
   app-lint:
     runs-on: ubuntu-latest

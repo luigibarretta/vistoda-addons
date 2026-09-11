@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+- Adds exact NVR channel, substream and bounded full VTM inventory selection.
+- Supports compatible encrypted H.264/HEVC RTP as fail-closed MPEG-TS media.
+- Preserves actual PS/TS recording types through playback, download and backup.
+
 ## 0.5.0
 
 - Publishes bounded private-spool path and capacity metadata for Vistoda.

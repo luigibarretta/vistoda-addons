@@ -1,0 +1,8 @@
+{
+  "alias": "entrance",
+  "intercoms": [
+    {"alias": "entrance", "device_id": 100000001},
+    {"alias": "side-gate", "device_id": 100000002}
+  ],
+  "recording_storage": "private"
+}

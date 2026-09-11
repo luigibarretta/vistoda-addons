@@ -42,7 +42,7 @@ def main() -> None:
     if args.tag != f"v{version}":
         raise SystemExit(f"release tag {args.tag!r} does not match VERSION {version}")
 
-    subprocess.run(
+    tag_revision = subprocess.check_output(
         [
             "git",
             "-c",
@@ -52,9 +52,19 @@ def main() -> None:
             f"refs/tags/{args.tag}^{{commit}}",
         ],
         cwd=ROOT,
-        check=True,
-        stdout=subprocess.DEVNULL,
+        text=True,
     )
+    head_revision = subprocess.check_output(
+        ["git", "-c", f"safe.directory={ROOT}", "rev-parse", "HEAD"],
+        cwd=ROOT, text=True,
+    )
+    if tag_revision.strip() != head_revision.strip():
+        raise SystemExit("Release tag must resolve to the checked-out commit")
+    if subprocess.check_output(
+        ["git", "-c", f"safe.directory={ROOT}", "status", "--porcelain", "--untracked-files=no"],
+        cwd=ROOT, text=True,
+    ).strip():
+        raise SystemExit("Release requires a clean tracked checkout")
 
     repository = os.environ.get("GITHUB_REPOSITORY", "")
     api_url = os.environ.get("GITHUB_API_URL", "").rstrip("/")

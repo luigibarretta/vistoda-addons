@@ -3,19 +3,24 @@ name: release-catalog
 on:
   push:
     tags: ["v*"]
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: Existing immutable catalog tag to publish
-        required: true
-        type: string
+
+concurrency:
+  group: release-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
+  validation:
+    uses: ./.github/workflows/validate.yaml
+
   release:
+    needs: validation
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -23,19 +28,20 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
-      - name: Verify catalog tag and contracts
-        shell: bash
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+      - name: Verify exact catalog source and public signed images
         env:
-          DISPATCH_TAG: ${{ inputs.tag }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          release_tag="${DISPATCH_TAG:-${GITHUB_REF_NAME}}"
-          test "${release_tag}" = "v$(tr -d '[:space:]' < VERSION)"
+          test "${GITHUB_REF_NAME}" = "v$(tr -d '[:space:]' < VERSION)"
           python scripts/check.py
-          python scripts/publish-release.py --tag "${release_tag}" --dry-run
-      - name: Publish immutable catalog metadata
+          python scripts/publish-release.py --tag "${GITHUB_REF_NAME}" --dry-run
+          python scripts/verify-images.py > release-evidence.json
+      - name: Publish immutable catalog metadata and verified digest evidence
         env:
-          DISPATCH_TAG: ${{ inputs.tag }}
           FORGE_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          release_tag="${DISPATCH_TAG:-${GITHUB_REF_NAME}}"
-          python scripts/publish-release.py --tag "${release_tag}"
+          python scripts/publish-release.py --tag "${GITHUB_REF_NAME}"
+          gh release upload "${GITHUB_REF_NAME}" release-evidence.json

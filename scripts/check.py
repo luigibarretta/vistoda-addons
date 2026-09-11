@@ -9,9 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 APPS = ("vistoda_blink", "vistoda_ezviz", "vistoda_ring")
 EXPECTED_VERSIONS = {
-    "vistoda_blink": "0.13.1",
-    "vistoda_ezviz": "0.5.0",
-    "vistoda_ring": "0.12.0",
+    "vistoda_blink": "0.13.2",
+    "vistoda_ezviz": "0.6.0",
+    "vistoda_ring": "0.13.0",
 }
 IMAGE = re.compile(r"^image: ghcr\.io/luigibarretta/vistoda-[a-z]+-addon$", re.MULTILINE)
 VERSION = re.compile(r"^version: [0-9]+\.[0-9]+\.[0-9]+$", re.MULTILINE)
@@ -47,6 +47,8 @@ def check_app(name: str) -> None:
         )
         require(len(image) <= 2 * 1024 * 1024, f"{name}: {asset} exceeds 2 MiB")
     if name == "vistoda_ring":
+        require("intercoms: []" in config, "Ring legacy single-device default missing")
+        require("device_id: int(1,9007199254740991)" in config, "Ring explicit device bindings missing")
         require("recording_storage: private" in config, "Ring storage default missing")
         require(
             "recording_storage: list(private|addon_config|media|share|network)" in config,
@@ -58,6 +60,10 @@ def check_app(name: str) -> None:
         )
         for mount in ("addon_config", "media", "share"):
             require(f"  - type: {mount}\n    read_only: false" in config, f"{mount} RW map missing")
+    if name == "vistoda_ezviz":
+        require("camera_serial: match(^[A-Za-z0-9]+$)" in config, "EZVIZ serial must be non-empty")
+        require("camera_channel: int(1,256)" in config, "EZVIZ channel must be bounded")
+        require("substream: bool" in config, "EZVIZ substream option missing")
     for language in ("en", "it"):
         require(
             (directory / "translations" / f"{language}.yaml").is_file(),

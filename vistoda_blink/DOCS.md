@@ -8,10 +8,11 @@ code sent by Blink.
 The official Blink integration is not required. Vistoda owns one independent
 rotating session and exposes native Home Assistant entities and services.
 
-The Vistoda Blink panel opens the camera through browser-native WebRTC. Camera
-audio and the local microphone have separate controls, start disabled and are
-released when the live closes or the panel changes camera. Only one Vistoda
-session may own a camera or browser microphone at a time.
+The Vistoda Blink panel uses Blink's supported Walnut/IMMI live transport.
+Microphone and full-duplex talk are unavailable while Blink disables the
+Cayuga/WebRTC capability. Only one Vistoda session may own a camera at a time.
+If a verification code is rejected or expires, enter the account credentials
+again to request a fresh challenge, then use only the newest code.
 
 Vistoda reads the real provider state for each supported camera setting. On
 verified v1 cameras it also manages the native 20×15 activity grid and up to

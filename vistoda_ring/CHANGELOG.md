@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.0
+
+- Adds exact multi-intercom configuration, discovery, selection and isolation.
+- Binds door, audio, event history and recordings to one verified physical ID.
+- Adds a safe authenticated intercom inventory and non-destructive archive migration.
+
 ## 0.12.0
 
 - Add bounded, server-paginated Ring Intercom event history for calls, Live View

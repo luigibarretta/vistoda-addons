@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.1
+
+- Preserve the complete MIT license and attribution for cloud-cam-viewer adaptations.
+- Include runtime package/license inventory and corresponding Debian sources.
+- Preserve existing camera, snapshot, live and recording behavior.
+
 ## 0.7.0
 
 - Configures up to 64 cameras in one app while preserving the legacy

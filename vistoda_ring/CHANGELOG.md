@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.1
+
+- Include the MPL-covered ece source and recipient instructions in both images.
+- Preserve existing intercom, audio, unlock, history and recording behavior.
+
 ## 0.13.0
 
 - Adds exact multi-intercom configuration, discovery, selection and isolation.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.15.4
+
+- Read the official HTTP `is_mclv` field instead of an internal model name,
+  so valid native audio policy is recognized. Missing or malformed policy
+  still cannot enable microphone capture.
+- Retain the existing live video, verified TLS and audio lease safeguards.
+
 ## 0.15.3
 
 - Follow the upstream multi-client audio policy with explicit Start/Stop commands

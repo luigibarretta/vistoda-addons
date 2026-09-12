@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.15.0
+
+- Add an authenticated, exclusive Walnut microphone channel alongside the
+  existing Home Assistant video subscriber; no replacement video player.
+- Encode explicit PCM capture to the offered AAC format with bounded queues,
+  freshness deadlines and immediate revocation on stop or disconnect.
+- Bundle the minimal LGPL FFmpeg executable and its corresponding source.
+- This is the microphone transport release, not a full-duplex certification.
+  Camera speaker output requires acoustic validation; the observed Mini offer
+  requires listening to pause while talking. Camera settings and media are unchanged.
+
 ## 0.14.1
 
 - Close the IMMI keepalive writer together with the live reader on timeout,

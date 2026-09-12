@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.2
+
+- Allow backend recording pages of up to 100 clips for the shared Vistoda
+  10/25/50/100 selector. Video files and archive storage are unchanged.
+
 ## 0.7.1
 
 - Preserve the complete MIT license and attribution for cloud-cam-viewer adaptations.

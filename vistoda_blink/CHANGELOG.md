@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.16.0
+
+- Independent viewers share live video without reserving the talk channel.
+- Drop stale/congested audio without replay; report specific microphone errors.
+- Expose bounded Continue/session timers for the Vistoda mobile player.
+- Allow up to 100 recordings per backend page. No user recordings are migrated.
+- Use Vistoda HA 0.29.0 for fullscreen mobile controls, hold-to-talk, default
+  listening and capability-gated duplex. Real audibility/echo remains hardware-specific.
+
 ## 0.15.4
 
 - Read the official HTTP `is_mclv` field instead of an internal model name,

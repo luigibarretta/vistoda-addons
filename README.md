@@ -13,7 +13,7 @@ Assistant OS and Home Assistant Supervised. Install only the providers you use:
 | Provider | Available scope | Release limitations |
 | --- | --- | --- |
 | Ring | Selected intercom controls/history, audio and local recordings | Experimental consumer APIs; vendor changes can affect operation. Physical actions require an exact device binding. |
-| Blink | Walnut/IMMI live, snapshots, clips and supported settings/storage | Full-duplex/Cayuga microphone support is not proven or enabled. Capabilities vary by model. |
+| Blink | Walnut/IMMI live, snapshots, clips and supported settings/storage | Voice requires a supported audio offer; duplex additionally requires camera/browser AEC and hardware validation. Cayuga remains disabled by provider policy. Capabilities vary by model. |
 | EZVIZ | Snapshots, live/local recordings and limited encrypted RTP compatibility | No claim of universal encrypted-camera compatibility. Talk and camera microSD remain unavailable pending a usable Open Platform integration. |
 | Apple | Separate companion project | Excluded from this release and its readiness claims. |
 

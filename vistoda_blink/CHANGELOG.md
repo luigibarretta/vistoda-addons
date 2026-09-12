@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.0
+
+- Verify IMMI TLS with authenticated Blink certificate identities or standard
+  public trust; reject unknown certificates without an insecure fallback.
+- Read and edit native per-camera temperature alerts and thresholds, preserving
+  calibration and verifying upstream state. Explicit paired setup for unset limits.
+- Requires Vistoda Home Assistant 0.27.0 for the temperature editor in HA units.
+  Native Blink push delivery still requires the Blink app's notification permission.
+
 ## 0.13.3
 
 - Preserves stable camera aliases across provider inventory reorder and temporary

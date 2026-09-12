@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.1
+
+- Close the IMMI keepalive writer together with the live reader on timeout,
+  protocol failure and loss of the last viewer.
+- Observe the first audio-format offer during an explicitly requested live,
+  without transmitting audio or enabling the microphone.
+- Preserve verified TLS, existing playback, recordings and camera settings.
+  Walnut full-duplex remains under validation, not advertised as available.
+
 ## 0.14.0
 
 - Verify IMMI TLS with authenticated Blink certificate identities or standard

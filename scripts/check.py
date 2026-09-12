@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 APPS = ("vistoda_blink", "vistoda_ezviz", "vistoda_ring")
 EXPECTED_VERSIONS = {
-    "vistoda_blink": "0.14.0",
+    "vistoda_blink": "0.14.1",
     "vistoda_ezviz": "0.7.1",
     "vistoda_ring": "0.13.1",
 }

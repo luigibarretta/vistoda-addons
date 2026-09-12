@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.15.3
+
+- Follow the upstream multi-client audio policy with explicit Start/Stop commands
+  on the existing Walnut session. Unknown or unavailable audio cannot enable capture.
+- Revoke transmission on microphone conflict, stop, disconnect or offer change;
+  later availability never silently restarts the microphone.
+- Preserve Home Assistant video and verified TLS. Session availability is not a
+  remote ownership acknowledgement; audible and full-duplex tests remain separate.
+- Retain passive video's keepalive tolerance while bounding active audio controls.
+
 ## 0.15.1
 
 - Align the AAC ADTS buffer-fullness field with native Walnut packets without

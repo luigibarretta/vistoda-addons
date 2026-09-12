@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.1
+
+- Align the AAC ADTS buffer-fullness field with native Walnut packets without
+  changing audio payloads, frame lengths or counters. Offline decoded audio is
+  identical; this is compatibility hardening, not proof of speaker audibility.
+- Use Vistoda for Home Assistant 0.28.0 for conditional microphone controls.
+  Listening pauses while talking; simultaneous full duplex is not claimed.
+
 ## 0.15.0
 
 - Add an authenticated, exclusive Walnut microphone channel alongside the

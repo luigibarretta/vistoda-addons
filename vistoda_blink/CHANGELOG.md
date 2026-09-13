@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.18.0
+
+- Save or discard the active compatible Blink live through the provider's
+  acknowledged session command. Blink routes eligible saves to Sync Module USB
+  when Local Storage is active; HA-local recording remains a separate option.
+
 ## 0.17.2
 
 - Preserve complete provider thumbnail paths for Blink Mini cameras so Home

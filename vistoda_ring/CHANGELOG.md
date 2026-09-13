@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.1
+
+- Recover Ring event notifications when a persisted FCM registration ends cleanly by rotating only the regenerable push registration.
+- Preserve account enrollment, intercom bindings, recordings and all device configuration during recovery.
+
 ## 0.14.0
 
 - Native camera inventory and bounded H264/PCMU browser signaling, separate from Intercom controls.

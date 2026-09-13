@@ -1,15 +1,15 @@
 # Changelog
+## 0.18.1
+- Expose the strict authenticated provider SAVE_CLIP proxy for end-to-end USB routing verification, preserving the WebSocket UI and Blink-owned routing.
 
 ## 0.18.0
 
-- Save or discard the active compatible Blink live through the provider's
-  acknowledged session command. Blink routes eligible saves to Sync Module USB
-  when Local Storage is active; HA-local recording remains a separate option.
+- Save or discard the active compatible Blink live through the provider's acknowledged session command. Blink routes eligible saves to Sync Module USB
+  when Local Storage is active; HA-local recording remains separate.
 
 ## 0.17.2
 
-- Preserve complete provider thumbnail paths for Blink Mini cameras so Home
-  Assistant can proxy their most recent snapshot without rebuilding the URL.
+- Preserve complete provider thumbnail paths so HA proxies Blink Mini snapshots without rebuilding their URLs.
 
 ## 0.17.1
 

@@ -76,8 +76,16 @@ Home Assistant. `/vistoda/blink` mostra gli ultimi snapshot salvati senza
 risvegliare ogni telecamera a batteria. Snapshot e live vengono richiesti
 esplicitamente.
 
-Il live Walnut/IMMI è supportato. L'audio full-duplex Cayuga/WebRTC rimane
-disattivato perché la policy provider dell'account non lo abilita attualmente.
+Il live Walnut/IMMI e la modalità condizionale parla/ascolta sono supportati. Il
+microfono richiede HTTPS e un permesso esplicito del browser. L'ascolto simultaneo
+mentre si parla dipende dall'offerta provider e dalla cancellazione eco di
+browser e telecamera: va provato sul proprio modello. Cayuga/WebRTC resta
+disabilitato dalla policy provider dell'account.
+
+La card sistema Blink conserva più backup nominati delle impostazioni di tutte
+le telecamere. Il ripristino usa seriale/ID provider e revisioni. Migrazione
+Wi-Fi, espulsione sicura e rimozione del Sync Module sono mostrate come non
+disponibili: per queste procedure di recupero va usata l'app ufficiale.
 
 ### EZVIZ
 

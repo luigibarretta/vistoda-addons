@@ -1,13 +1,17 @@
 # Changelog
 
+## 0.17.0
+
+- Publish temperature-range and Sync Module metadata; add admin-only settings
+  backups with stable identity, preflight, revision/read-back and rollback.
+
 ## 0.16.0
 
 - Independent viewers share live video without reserving the talk channel.
 - Drop stale/congested audio without replay; report specific microphone errors.
 - Expose bounded Continue/session timers for the Vistoda mobile player.
 - Allow up to 100 recordings per backend page. No user recordings are migrated.
-- Use Vistoda HA 0.29.0 for fullscreen mobile controls, hold-to-talk, default
-  listening and capability-gated duplex. Real audibility/echo remains hardware-specific.
+- Vistoda HA 0.29.0 supplies mobile live controls; acoustic results vary by hardware.
 
 ## 0.15.4
 

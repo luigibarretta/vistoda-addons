@@ -75,8 +75,15 @@ Expected result: the Blink network and its cameras appear as Home Assistant
 devices. `/vistoda/blink` shows the latest stored snapshots without waking every
 battery camera. Request a new snapshot or live view explicitly.
 
-Walnut/IMMI live video is supported. Full-duplex Cayuga/WebRTC talk remains
-disabled because the enrolled provider policy does not currently enable it.
+Walnut/IMMI live and conditional talk/listen are supported. Microphone use needs
+HTTPS and an explicit browser permission. Simultaneous listening while talking
+depends on the provider offer and browser/camera echo cancellation; test it on
+your model. Cayuga/WebRTC remains disabled by the enrolled provider policy.
+
+The Blink system card can keep multiple named, all-camera settings backups.
+Restore uses provider serial/ID matching and revision checks. Sync Module Wi-Fi
+migration, safe eject and removal are shown as unavailable; use the official app
+for those recovery-sensitive operations.
 
 ### EZVIZ
 

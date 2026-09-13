@@ -8,19 +8,18 @@ Assistant integrations.
 
 | Component | Version | Required for |
 | --- | --- | --- |
-| Vistoda Home Assistant integration | `0.26.0` | Ring, EZVIZ and the unified panel |
-| Vistoda Blink Home Assistant integration | `0.13.3` | Blink only |
-| Vistoda Ring app | `0.13.0` | Ring Intercom |
-| Vistoda Blink app | `0.13.3` | Blink cameras |
-| Vistoda EZVIZ app | `0.7.0` | EZVIZ cameras |
-| Vistoda Apps catalog | `0.4.0` | HAOS/Supervised app installation |
+| Vistoda Home Assistant integration | `0.31.0` | Ring, Blink, EZVIZ and the unified panel |
+| Vistoda Blink Home Assistant integration | `0.17.0` | Blink only |
+| Vistoda Ring app | `0.14.0` | Ring Intercom and experimental cameras |
+| Vistoda Blink app | `0.17.0` | Blink cameras |
+| Vistoda EZVIZ app | `0.7.2` | EZVIZ cameras |
+| Vistoda Apps catalog | `0.4.12` | HAOS/Supervised app installation |
 
 The minimum Home Assistant release is `2026.8.0`. CI also tests `2026.9.1`.
 Provider images are published for `amd64` and `aarch64`.
 
-When upgrading this release set, install Vistoda EZVIZ `0.7.0` before Vistoda
-`0.26.0`. The integration rejects an older EZVIZ app instead of using an
-unverified camera binding.
+Update provider apps before their matching Home Assistant integrations. Vistoda
+refuses incompatible versions rather than using an unverified device binding.
 
 ## Required components
 
@@ -35,7 +34,7 @@ unverified camera binding.
 | Provider | Released functions | Known boundary |
 | --- | --- | --- |
 | Ring | Multiple intercom selection, status, controls, event history, full-duplex browser audio and local call recordings | Uses experimental consumer APIs not supported by Ring for third parties. Provider changes can interrupt service. |
-| Blink | Multiple cameras, stored/manual snapshots, Walnut live, supported settings and zones, cloud/USB/local archives and NFS backup | Cayuga/WebRTC microphone and full-duplex talk are disabled by current provider policy. Settings vary by model. |
+| Blink | Multiple cameras, stored/manual snapshots, conditional Walnut talk/listen, supported settings and zones, versioned settings backup, cloud/USB/local archives and NFS backup | Simultaneous duplex depends on the provider offer and browser/camera AEC; verify sound and echo on each model. Cayuga remains policy-gated. Settings vary by model. |
 | EZVIZ | Multiple cameras, stored/manual snapshots, compatible live streams, local recordings and NFS backup | Talk and direct microSD access are unavailable. Encrypted stream compatibility is not universal. |
 | Apple | Separate project | Excluded from this release set and its readiness claims. |
 

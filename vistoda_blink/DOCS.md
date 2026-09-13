@@ -12,8 +12,10 @@ The official Blink integration is not required. Vistoda owns one independent
 rotating session and exposes native Home Assistant entities and services.
 
 The Vistoda Blink panel uses Blink's supported Walnut/IMMI live transport.
-Microphone and full-duplex talk are unavailable while Blink disables the
-Cayuga/WebRTC capability. Only one Vistoda session may own a camera at a time.
+Multiple viewers can share video; only one viewer can hold the Walnut microphone
+lease at a time. Simultaneous listening while talking is enabled only when the
+actual provider offer and browser/camera echo cancellation support it. Cayuga
+remains disabled by Blink's current provider policy.
 If a verification code is rejected or expires, enter the account credentials
 again to request a fresh challenge, then use only the newest code.
 
@@ -23,6 +25,11 @@ two privacy zones with revision checks, provider read-back and rollback. Zone
 controls stay unavailable on Owl/Mini v2 devices while Blink rejects the
 enrolled route; no empty or guessed configuration is displayed.
 
+The system card can retain up to 25 named settings backups for all enrolled
+cameras. Restore matches stable provider serials/IDs, creates a rollback
+snapshot, preflights every field and fails on a concurrent revision or an
+uninitialized threshold that cannot be reversed.
+
 Vistoda can also record finite 15, 30 or 60 second clips from the shared live
 stream. Its standalone archive is distinct from Blink cloud clips and Sync
 Module USB storage. Download, confirmed deletion and verified NFS backup are
@@ -30,7 +37,9 @@ managed from the Vistoda camera page through Home Assistant. The Sync Module
 USB archive has a separate paginated list with playback, download and
 checksum-verified NFS copy. Administrators may delete selected exact clips or
 format compatible media only after the explicit destructive confirmation;
-Vistoda does not expose eject or mount operations.
+The panel reports Sync Module firmware, status and storage used. Wi-Fi migration,
+safe eject and Sync Module removal are visibly unavailable and have no provider
+route. Vistoda does not expose mount operations.
 
 The app API remains private to the Supervisor network. Do not publish port
 8099 unless an advanced external consumer has a separately reviewed need.

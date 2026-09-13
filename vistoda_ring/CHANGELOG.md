@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.14.0
+
+- Native camera inventory and bounded H264/PCMU browser signaling, separate from Intercom controls.
+- Camera-only accounts can enroll with Vistoda Home Assistant 0.30.1.
+- Experimental: no Ring camera hardware was available for acceptance testing. Camera snapshots, recordings and settings are not included.
+- Existing Intercom audio, history and unlock routes are unchanged.
+
 ## 0.13.1
 
 - Include the MPL-covered ece source and recipient instructions in both images.

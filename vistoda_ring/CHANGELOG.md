@@ -3,7 +3,7 @@
 ## 0.14.0
 
 - Native camera inventory and bounded H264/PCMU browser signaling, separate from Intercom controls.
-- Camera-only accounts can enroll with Vistoda Home Assistant 0.30.1.
+- Camera-only accounts can enroll with Vistoda Home Assistant 0.30.2; this version also fixes native camera WebSocket dispatch.
 - Experimental: no Ring camera hardware was available for acceptance testing. Camera snapshots, recordings and settings are not included.
 - Existing Intercom audio, history and unlock routes are unchanged.
 

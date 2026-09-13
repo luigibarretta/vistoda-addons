@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.17.2
+
+- Preserve complete provider thumbnail paths for Blink Mini cameras so Home
+  Assistant can proxy their most recent snapshot without rebuilding the URL.
+
 ## 0.17.1
 
 - Preserve stable camera identity, snapshots and status when a model returns a

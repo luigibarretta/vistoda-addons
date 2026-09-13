@@ -1,5 +1,9 @@
 # Install, recover and maintain Vistoda
 
+For a new installation, follow [Get started with Vistoda](GETTING_STARTED.md)
+first. This runbook covers maintenance and recovery after the normal setup path
+is understood.
+
 ## Before installation
 
 Use Home Assistant OS or Supervised on amd64/aarch64 with the Supervisor app

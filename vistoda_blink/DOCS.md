@@ -1,5 +1,8 @@
 # Vistoda Blink
 
+La procedura completa è nella [guida italiana](https://github.com/luigibarretta/vistoda-addons/blob/main/GETTING_STARTED.it.md);
+the complete procedure is in the [English setup guide](https://github.com/luigibarretta/vistoda-addons/blob/main/GETTING_STARTED.md).
+
 Install and start the app, then complete the automatically discovered
 **Vistoda Blink** flow under Settings → Devices & services. Enter the email and
 password used by the Blink app and, when requested, the newest verification

@@ -1,5 +1,9 @@
 # Installare, recuperare e aggiornare Vistoda
 
+Per una nuova installazione segui prima [Iniziare con Vistoda](GETTING_STARTED.it.md).
+Questo runbook tratta manutenzione e ripristino dopo il percorso di configurazione
+normale.
+
 ## Prima di installare
 
 Servono Home Assistant OS o Supervised su amd64/aarch64, lo store app del

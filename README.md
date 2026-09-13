@@ -8,6 +8,11 @@ Assistant OS and Home Assistant Supervised. Install only the providers you use:
 - **Vistoda Ring** for Ring Intercom controls, full-duplex audio and local
   recordings.
 
+New installation: **[follow the English setup guide](GETTING_STARTED.md)** or
+the **[guida italiana](GETTING_STARTED.it.md)**. The
+[compatibility matrix](COMPATIBILITY.md) lists the exact tested versions and
+unsupported provider features.
+
 ## Capability and support matrix
 
 | Provider | Available scope | Release limitations |
@@ -44,18 +49,19 @@ live NFS/Samba storage mounted by HAOS. The app verifies every copied file
 before retiring it from the old destination and rejects unavailable network
 mounts instead of silently writing to local storage.
 
-## Install
+## Quick install
 
 [![Install Vistoda through HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=luigibarretta&repository=vistoda-home-assistant&category=integration)
 [![Install Vistoda Blink through HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=luigibarretta&repository=vistoda-blink&category=integration)
 [![Add the Vistoda app repository to Home Assistant](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fluigibarretta%2Fvistoda-addons)
 
-1. Install **Vistoda** through HACS. Install **Vistoda Blink** too only when
-   using Blink cameras.
-2. Use the button above, or add this repository to Settings → Apps → App
-   store → Repositories.
-3. Install and start the Vistoda provider apps you need.
-4. Open Settings → Devices & services and complete the discovered Vistoda flow.
+1. Install **Vistoda** through HACS. Blink users also install **Vistoda Blink**.
+2. Restart Home Assistant once, then add this app repository.
+3. Install the required provider apps and complete their discovered flows.
+
+The [setup guide](GETTING_STARTED.md) contains the exact Ring, Blink and EZVIZ
+steps, expected results and first checks. Do not infer provider options from
+this summary.
 
 Installation recovery, updates, rollback, restore and uninstall:
 [English guide](OPERATIONS.md) · [Guida italiana](OPERATIONS.it.md).
@@ -68,6 +74,10 @@ Home Assistant Container/Core users can run the same Rust provider images as
 external services. Manual URL and API-token configuration remains available as
 an advanced fallback; it is not the default installation path.
 
+Developers should start with the family
+[contribution guide](https://github.com/luigibarretta/vistoda-home-assistant/blob/main/CONTRIBUTING.md),
+which maps repository ownership, toolchains and release order.
+
 ## Release contract
 
 App versions match the immutable provider image tags. Every image must provide
@@ -78,5 +88,12 @@ published to the host.
 Release workflows build on native GitHub `amd64` and `aarch64` runners,
 apply Home Assistant architecture labels and sign both images and the generic
 manifest with keyless Cosign.
+
+## Author, support and independence
+
+The Vistoda app catalog is maintained by [Luigi Barretta](https://github.com/luigibarretta).
+[Support the project on Ko-fi](https://ko-fi.com/luigibarretta). Vistoda is an
+independent project; read the shared [disclaimer](https://github.com/luigibarretta/vistoda-home-assistant/blob/main/DISCLAIMER.md)
+and [accessibility statement](https://github.com/luigibarretta/vistoda-home-assistant/blob/main/ACCESSIBILITY.md).
 
 Licensed under the Apache License 2.0.

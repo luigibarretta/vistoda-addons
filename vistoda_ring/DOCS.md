@@ -1,5 +1,8 @@
 # Vistoda Ring
 
+La procedura completa è nella [guida italiana](https://github.com/luigibarretta/vistoda-addons/blob/main/GETTING_STARTED.it.md);
+the complete procedure is in the [English setup guide](https://github.com/luigibarretta/vistoda-addons/blob/main/GETTING_STARTED.md).
+
 Choose a short Home Assistant alias, install and start the app, then open the
 automatically discovered **Vistoda Ring** flow. Enter the Ring account email and
 password. If Ring sends an SMS, enter only the newest six-digit code.

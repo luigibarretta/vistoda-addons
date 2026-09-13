@@ -15,6 +15,7 @@ EXPECTED_VERSIONS = {
 }
 IMAGE = re.compile(r"^image: ghcr\.io/luigibarretta/vistoda-[a-z]+-addon$", re.MULTILINE)
 VERSION = re.compile(r"^version: [0-9]+\.[0-9]+\.[0-9]+$", re.MULTILINE)
+MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 
 
 def require(condition: bool, message: str) -> None:
@@ -82,10 +83,73 @@ def check_loc() -> None:
             require(lines <= 250, f"{path.relative_to(ROOT)} exceeds 250 LOC: {lines}")
 
 
+def check_docs() -> None:
+    required = (
+        "README.md",
+        "GETTING_STARTED.md",
+        "GETTING_STARTED.it.md",
+        "COMPATIBILITY.md",
+        "CONTRIBUTING.md",
+        "OPERATIONS.md",
+        "OPERATIONS.it.md",
+    )
+    for name in required:
+        require((ROOT / name).is_file(), f"{name} missing")
+
+    matrix = (ROOT / "COMPATIBILITY.md").read_text(encoding="utf-8")
+    labels = {
+        "vistoda_blink": "Vistoda Blink app",
+        "vistoda_ezviz": "Vistoda EZVIZ app",
+        "vistoda_ring": "Vistoda Ring app",
+    }
+    for app, version in EXPECTED_VERSIONS.items():
+        require(
+            f"| {labels[app]} | `{version}` |" in matrix,
+            f"COMPATIBILITY.md: {app} version drift",
+        )
+    catalog_version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+    require(
+        f"| Vistoda Apps catalog | `{catalog_version}` |" in matrix,
+        "COMPATIBILITY.md: catalog version drift",
+    )
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    for name in ("GETTING_STARTED.md", "GETTING_STARTED.it.md", "COMPATIBILITY.md"):
+        require(f"]({name})" in readme, f"README.md: link to {name} missing")
+
+    english = (ROOT / "GETTING_STARTED.md").read_text(encoding="utf-8")
+    italian = (ROOT / "GETTING_STARTED.it.md").read_text(encoding="utf-8")
+    require(
+        english.count("\n## ") == italian.count("\n## "),
+        "getting-started language structure drift",
+    )
+
+    for document in ROOT.rglob("*.md"):
+        if ".git" in document.parts:
+            continue
+        body = document.read_text(encoding="utf-8")
+        for line_number, line in enumerate(body.splitlines(), 1):
+            for raw_target in MARKDOWN_LINK.findall(line):
+                target = raw_target.strip()
+                if target.startswith("<") and ">" in target:
+                    target = target[1 : target.index(">")]
+                else:
+                    target = target.split()[0]
+                if target.startswith(("http://", "https://", "mailto:", "#", "data:")):
+                    continue
+                relative = target.split("#", 1)[0]
+                if relative:
+                    require(
+                        (document.parent / relative).exists(),
+                        f"{document.relative_to(ROOT)}:{line_number}: broken link {relative}",
+                    )
+
+
 def main() -> None:
     require((ROOT / "repository.yaml").is_file(), "repository.yaml missing")
     for app in APPS:
         check_app(app)
+    check_docs()
     check_loc()
     print("Vistoda Apps repository contracts passed")
 

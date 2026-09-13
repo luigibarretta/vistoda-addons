@@ -1,5 +1,8 @@
 # Vistoda EZVIZ
 
+La procedura completa è nella [guida italiana](https://github.com/luigibarretta/vistoda-addons/blob/main/GETTING_STARTED.it.md);
+the complete procedure is in the [English setup guide](https://github.com/luigibarretta/vistoda-addons/blob/main/GETTING_STARTED.md).
+
 Enter the camera serial printed in the EZVIZ app/device information and choose
 a short Home Assistant alias. Start the app, then complete the automatically
 discovered **Vistoda EZVIZ** account flow.

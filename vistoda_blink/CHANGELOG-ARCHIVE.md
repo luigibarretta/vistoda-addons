@@ -1,5 +1,23 @@
 # Archived changelog
 
+## 0.4.7
+
+- Restore every Blink entity on Home Assistant 2026.9 by using the scoped
+  device-registry parent ID contract introduced in Core 2026.8.
+
+## 0.4.6
+
+- Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,
+  fail-closed token storage, bounded readiness and engine lifecycle handling.
+
+## 0.4.5
+
+- Reuse the provider's validated bootstrap state so Home Assistant startup does not duplicate a slow cloud refresh.
+
+## 0.4.4
+
+- Report the provider camera inventory in health independently from active live-stream hubs.
+
 ## 0.4.3
 
 - Classify the optional Sync Module endpoint and stop warning on its expected 404.

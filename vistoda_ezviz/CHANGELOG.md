@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.3
+
+- Hold every maintained source file to the 250-line Vistoda budget. Code is
+  moved, not rewritten: camera, snapshot, live and recording behavior is unchanged.
+
 ## 0.7.2
 
 - Allow backend recording pages of up to 100 clips for the shared Vistoda

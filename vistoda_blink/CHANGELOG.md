@@ -1,4 +1,11 @@
 # Changelog
+
+## 0.19.0
+
+- Follow the official Blink app's Sync Module USB states: report a command as
+  successful only when Blink confirms it, refresh status without rebuilding the
+  USB index, and add native safe eject and reconnect for HA administrators.
+
 ## 0.18.1
 - Expose the strict authenticated provider SAVE_CLIP proxy for end-to-end USB routing verification, preserving the WebSocket UI and Blink-owned routing.
 
@@ -228,23 +235,5 @@
   failing the entire settings view.
 - Validate every write, serialize concurrent changes, verify the vendor
   read-back and attempt rollback when verification fails.
-
-## 0.4.7
-
-- Restore every Blink entity on Home Assistant 2026.9 by using the scoped
-  device-registry parent ID contract introduced in Core 2026.8.
-
-## 0.4.6
-
-- Adopt the shared audited Vistoda app bootstrap for Supervisor discovery,
-  fail-closed token storage, bounded readiness and engine lifecycle handling.
-
-## 0.4.5
-
-- Reuse the provider's validated bootstrap state so Home Assistant startup does not duplicate a slow cloud refresh.
-
-## 0.4.4
-
-- Report the provider camera inventory in health independently from active live-stream hubs.
 
 Earlier releases: [archived changelog](CHANGELOG-ARCHIVE.md).

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.20.0
+
+- Read motion events from Blink's native event list, including events without
+  video, so Home Assistant motion sensors and notifications see every event.
+- Optional motion recording without a Sync Module USB drive: armed networks
+  start a bounded HA-local recording on selected cameras (rolling buffer).
+- Log Blink's own reason when it rejects a Sync Module command.
+
 ## 0.19.0
 
 - Follow the official Blink app's Sync Module USB states: report a command as

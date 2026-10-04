@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.1
+
+- Never ask the EZVIZ cloud for the device verification code just to show
+  the encryption state: that request makes EZVIZ email or text the owner a
+  security code. It is now used only when strictly needed to decrypt video
+  or pictures, at most once a day per camera. Entering the code printed on
+  the camera label avoids it entirely.
+
 ## 0.9.0
 
 - Live view of cameras with video encryption on: Vistoda reads the device

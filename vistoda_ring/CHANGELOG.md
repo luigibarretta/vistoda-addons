@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.14.5
+
+- Notify intercom unlocks made from the official Ring app: Ring records them
+  only in its event history, which Vistoda now reads every 20 seconds.
+- Remove the Ring "Unlock Alerts" opt-in from 0.14.4, which Ring rejects.
+- Report history read failures in `vistoda_ring_unlock_history_errors_total`.
+
 ## 0.14.4
 
 - Receive intercom unlocks made from the official Ring app: subscribe each

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.3
+
+- Add a read-only, redacted diagnostic of Ring activity feeds to find where
+  Ring records intercom unlocks made from the official app.
+
 ## 0.14.2
 
 - Keep the Ring push connection alive when one message cannot be decrypted,

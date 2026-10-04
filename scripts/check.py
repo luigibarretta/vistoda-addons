@@ -11,7 +11,7 @@ APPS = ("vistoda_blink", "vistoda_ezviz", "vistoda_ring")
 EXPECTED_VERSIONS = {
     "vistoda_blink": "0.20.0",
     "vistoda_ezviz": "0.7.3",
-    "vistoda_ring": "0.14.2",
+    "vistoda_ring": "0.14.3",
 }
 IMAGE = re.compile(r"^image: ghcr\.io/luigibarretta/vistoda-[a-z]+-addon$", re.MULTILINE)
 VERSION = re.compile(r"^version: [0-9]+\.[0-9]+\.[0-9]+$", re.MULTILINE)

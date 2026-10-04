@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.2
+
+- Keep the Ring push connection alive when one message cannot be decrypted,
+  support the standard aes128gcm push encryption and log the reason for push
+  failures plus a redacted shape of unrecognized messages for diagnosis.
+
 ## 0.14.1
 
 - Recover Ring event notifications when a persisted FCM registration ends cleanly by rotating only the regenerable push registration.

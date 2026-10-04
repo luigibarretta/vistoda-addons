@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0
+
+- Read EZVIZ alarm events (motion, person, vehicle, doorbell, sound and
+  more) with their pictures, so Home Assistant can notify them and show an
+  event timeline without the official EZVIZ app. Read-only: messages are
+  never marked as read or deleted.
+
 ## 0.7.3
 
 - Hold every maintained source file to the 250-line Vistoda budget. Code is

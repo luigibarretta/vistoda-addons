@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.14.6
+
+- Report who unlocked the entrance (Ring user name, handset, access code or
+  delivery) so Vistoda Home Assistant 0.36.1 can name them in notifications.
+- Extend the redacted activity diagnostic to find why Ring rejects the
+  official "Unlock Alerts" settings for this client.
+
 ## 0.14.5
 
 - Notify intercom unlocks made from the official Ring app: Ring records them

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.14.4
+
+- Receive intercom unlocks made from the official Ring app: subscribe each
+  Intercom to Ring "Unlock Alerts" and recognize the unlock push categories.
+- Report the subscription in the `vistoda_ring_push_unlock_alerts_subscribed`
+  metric.
+
 ## 0.14.3
 
 - Add a read-only, redacted diagnostic of Ring activity feeds to find where

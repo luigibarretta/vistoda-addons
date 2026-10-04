@@ -11,6 +11,9 @@ configuration:
   substream:
     name: Preferisci stream a banda ridotta
     description: Usa lo stream secondario se disponibile. Utile su connessioni lente; lascia disattivato per la qualità migliore.
+  verification_code:
+    name: Codice di verifica del dispositivo (facoltativo)
+    description: Il codice di 6 lettere sull'etichetta della telecamera. Serve solo se la diretta di una telecamera criptata non funziona; di norma Vistoda lo legge dall'account EZVIZ. Resta privato.
   cameras:
     name: Più telecamere
     description: Lista facoltativa di 1–64 telecamere. Se compilata sostituisce alias, seriale, canale e stream singoli.

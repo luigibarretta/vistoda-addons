@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0
+
+- Live view of cameras with video encryption on: Vistoda reads the device
+  verification code from the EZVIZ account; an optional per-camera
+  verification code can be entered if needed.
+- Show the microSD card state and the list of recordings stored on it
+  (playback is not available yet).
+
 ## 0.8.0
 
 - Read EZVIZ alarm events (motion, person, vehicle, doorbell, sound and

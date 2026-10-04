@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.23.0
+
+- Show Blink's server-side arm/disarm schedules as switches, so they can be
+  seen and turned off without the official app.
+- Faster motion notifications (about 15 s polling while armed, with an
+  automatic slowdown if Blink rate-limits) and a picture from the local
+  motion recording when Blink sends none.
+
 ## 0.22.0
 
 - Report camera and Sync Module connectivity and the USB drive state (full,
@@ -232,15 +240,5 @@
   read-only.
 - Discovers the camera-specific activity-zone schema without exposing mask
   values.
-
-## 0.5.4
-
-- Matches the current native Blink REST request-header contract.
-- Restores model-aware v2 activity/privacy-zone capability probing.
-
-## 0.5.3
-
-- Adds safe model-feature probes and value-redacted v2 zone schema discovery.
-- Preserves the private, authenticated provider boundary for all diagnostics.
 
 Earlier releases: [archived changelog](CHANGELOG-ARCHIVE.md).

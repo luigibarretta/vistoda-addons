@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.16.0
+
+- Show the Intercom unlock type (direct or Ring-to-Open) and the unlock
+  duration, so a remote unlock that needs a ring first is explained.
+
 ## 0.15.0
 
 - Ask Home Assistant to sign in again when Ring revokes the session, instead

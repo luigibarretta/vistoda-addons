@@ -11,6 +11,9 @@ configuration:
   substream:
     name: Prefer lower-bandwidth stream
     description: Uses the secondary stream when the camera exposes it. Useful on slower links; leave disabled for best quality.
+  verification_code:
+    name: Device verification code (optional)
+    description: The 6-letter code on the camera label. Only needed if live view of an encrypted camera fails; normally Vistoda reads it from your EZVIZ account. Kept private.
   cameras:
     name: Multiple cameras
     description: Optional list of 1–64 cameras. When populated, it replaces the single alias, serial, channel and stream fields.

@@ -1,5 +1,19 @@
 # Archived changelog
 
+## 0.5.2
+
+- Adds an administrator-only, value-redacted camera capability inventory.
+- Keeps camera-setting diagnostics bounded to provider field names and JSON types.
+
+## 0.5.1
+
+- Add a redacted, revision-checked camera-settings API for the controls Vistoda
+  can verify safely against each Blink camera model.
+- Keep unsupported camera models visible with read-only metadata instead of
+  failing the entire settings view.
+- Validate every write, serialize concurrent changes, verify the vendor
+  read-back and attempt rollback when verification fails.
+
 ## 0.4.7
 
 - Restore every Blink entity on Home Assistant 2026.9 by using the scoped

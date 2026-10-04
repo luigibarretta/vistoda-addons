@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.21.0
+
+- Keep Blink's still for each motion event and serve it to Home Assistant, so
+  motion notifications can show the same image as the official app's rich
+  notification (`thumbnail` attribute of the motion sensor).
+
 ## 0.20.0
 
 - Read motion events from Blink's native event list, including events without
@@ -229,19 +235,5 @@
 
 - Adds safe model-feature probes and value-redacted v2 zone schema discovery.
 - Preserves the private, authenticated provider boundary for all diagnostics.
-
-## 0.5.2
-
-- Adds an administrator-only, value-redacted camera capability inventory.
-- Keeps camera-setting diagnostics bounded to provider field names and JSON types.
-
-## 0.5.1
-
-- Add a redacted, revision-checked camera-settings API for the controls Vistoda
-  can verify safely against each Blink camera model.
-- Keep unsupported camera models visible with read-only metadata instead of
-  failing the entire settings view.
-- Validate every write, serialize concurrent changes, verify the vendor
-  read-back and attempt rollback when verification fails.
 
 Earlier releases: [archived changelog](CHANGELOG-ARCHIVE.md).

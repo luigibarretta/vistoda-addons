@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.15.0
+
+- Ask Home Assistant to sign in again when Ring revokes the session, instead
+  of failing silently.
+- Detect Intercom calls that Ring recorded but never pushed, so Home
+  Assistant can report missed calls and a push outage.
+
 ## 0.14.6
 
 - Report who unlocked the entrance (Ring user name, handset, access code or

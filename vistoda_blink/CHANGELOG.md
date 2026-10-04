@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.22.0
+
+- Report camera and Sync Module connectivity and the USB drive state (full,
+  removed, needs formatting, ejected, incompatible) to Home Assistant.
+- Ask Home Assistant to sign in again only when Blink really revoked the
+  session; a wrong bridge token now raises a repair instead.
+
 ## 0.21.0
 
 - Keep Blink's still for each motion event and serve it to Home Assistant, so

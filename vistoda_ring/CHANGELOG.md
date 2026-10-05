@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.1
+
+- Stopping the app from Home Assistant now shows it as stopped instead of
+  failed. A shutdown that fails, or has to be forced, is still reported as
+  an error.
+
 ## 0.16.0
 
 - Show the Intercom unlock type (direct or Ring-to-Open) and the unlock

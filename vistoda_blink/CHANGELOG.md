@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.23.1
+
+- Stopping the app from Home Assistant now shows it as stopped instead of
+  failed. A shutdown that fails, or has to be forced, is still reported as
+  an error.
+
 ## 0.23.0
 
 - Show Blink's server-side arm/disarm schedules as switches, so they can be

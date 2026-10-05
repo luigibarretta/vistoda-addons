@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+- Camera settings, arming (per camera and the account's home/away/sleep
+  mode), detection, sensitivity and PTZ now use Vistoda's own EZVIZ login:
+  Home Assistant's built-in EZVIZ integration is no longer required.
+
 ## 0.9.1
 
 - Never ask the EZVIZ cloud for the device verification code just to show

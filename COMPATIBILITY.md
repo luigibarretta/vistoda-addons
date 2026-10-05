@@ -8,12 +8,12 @@ Assistant integrations.
 
 | Component | Version | Required for |
 | --- | --- | --- |
-| Vistoda Home Assistant integration | `0.40.0` | Ring, Blink, EZVIZ and the unified panel |
+| Vistoda Home Assistant integration | `0.41.0` | Ring, Blink, EZVIZ and the unified panel |
 | Vistoda Blink Home Assistant integration | `0.18.0` | Blink only |
 | Vistoda Ring app | `0.16.0` | Ring Intercom and experimental cameras |
 | Vistoda Blink app | `0.23.0` | Blink cameras |
-| Vistoda EZVIZ app | `0.9.1` | EZVIZ cameras |
-| Vistoda Apps catalog | `0.4.29` | HAOS/Supervised app installation |
+| Vistoda EZVIZ app | `0.10.0` | EZVIZ cameras |
+| Vistoda Apps catalog | `0.4.30` | HAOS/Supervised app installation |
 
 The minimum Home Assistant release is `2026.8.0`. CI also tests `2026.9.1`.
 Provider images are published for `amd64` and `aarch64`.

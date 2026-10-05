@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "comment": "Vendor endpoints that make the vendor contact the account owner (security codes by email/SMS) or change device security. Each pattern may appear in executable source only in the listed files, and only alongside the listed guard markers. Incident 2026-10-05: EZVIZ 0.9.0 called encryptkey from a polled path and EZVIZ emailed the owner a security code.",
+  "apps": {
+    "vistoda_ezviz": [
+      {
+        "pattern": "/api/device/query/encryptkey",
+        "allowed_files": ["src/transport/cloud_key.rs"],
+        "required_markers": ["self.cloud_keys", ".fetch("]
+      },
+      {"pattern": "encryptedInfo/risk", "allowed_files": []},
+      {"pattern": "/api/device/updateEncrypt", "allowed_files": []},
+      {"pattern": "encryptkey/query/batch/risk", "allowed_files": []}
+    ],
+    "vistoda_blink": [],
+    "vistoda_ring": []
+  }
+}

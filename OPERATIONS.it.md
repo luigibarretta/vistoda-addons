@@ -77,3 +77,14 @@ Ogni rilascio usa un tag versione esatto e non sovrascrivibile. Il catalogo vien
 pubblicato solo dopo verifica di disponibilità pubblica, entrambe le architetture,
 digest, firma e provenienza esatta delle immagini. L'allegato `release-evidence.json`
 riporta digest immutabili e commit sorgente. Una verifica fallita blocca il rilascio.
+
+### Protezione degli endpoint del fornitore
+
+Prima della pubblicazione `scripts/verify-app-sources.py` scarica ogni app al
+tag esatto del rilascio e applica `contracts/source-guards.json`. Gli endpoint
+che fanno contattare il titolare dell'account dal fornitore, o che cambiano la
+sicurezza del dispositivo, possono comparire nel codice eseguibile solo nel
+modulo protetto indicato, oppure mai. EZVIZ 0.9.0 non avrebbe superato questo
+controllo: chiedeva il codice di verifica (`encryptkey`) da un percorso
+interrogato periodicamente ed EZVIZ ha inviato al titolare un codice via email.
+Aggiungi una regola quando un provider adotta un endpoint simile.

@@ -84,3 +84,13 @@ The catalog release includes `release-evidence.json` with immutable digests and
 source commits. A failed verification blocks publication; it is not bypassed
 by a branch dispatch. Maintainers run `python scripts/verify-images.py` with
 Docker registry access, Cosign and GitHub CLI before publishing catalog metadata.
+
+### Vendor endpoint guards
+
+Before publication, `scripts/verify-app-sources.py` fetches every app at its
+exact release tag and applies `contracts/source-guards.json`. Vendor endpoints
+that make the vendor contact the account owner or change device security may
+appear in executable code only in the listed guarded module, or nowhere at
+all. EZVIZ 0.9.0 failed this gate: it requested the device verification code
+(`encryptkey`) from a polled path and EZVIZ emailed the owner a security code.
+Add a rule here whenever a provider adopts a similar endpoint.

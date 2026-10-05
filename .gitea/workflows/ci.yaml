@@ -21,3 +21,4 @@ jobs:
       - run: python -m pip install --upgrade pip pytest
       - run: python scripts/check.py
       - run: python -m pytest -q
+      - run: python scripts/verify-app-sources.py

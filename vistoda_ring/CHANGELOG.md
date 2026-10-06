@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.17.0
+
+- When Ring does not send an intercom call in real time, the call is now
+  reported from the Ring history within seconds instead of two minutes.
+- Register for Ring notifications the way the official app does, and renew
+  the registration after every Ring session renewal.
+
 ## 0.16.1
 
 - Stopping the app from Home Assistant now shows it as stopped instead of

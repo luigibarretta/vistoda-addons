@@ -76,7 +76,7 @@ def check_app(name: str) -> None:
 
 
 def check_loc() -> None:
-    suffixes = {".json", ".md", ".py", ".yaml", ".yml"}
+    suffixes = {".json", ".md", ".py", ".sh", ".yaml", ".yml"}
     for path in ROOT.rglob("*"):
         if path.is_file() and path.suffix in suffixes and ".git" not in path.parts:
             lines = len(path.read_text(encoding="utf-8").splitlines())

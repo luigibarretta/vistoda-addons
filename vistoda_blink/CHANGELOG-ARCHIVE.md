@@ -1,5 +1,97 @@
 # Archived changelog
 
+## 0.12.5
+
+- Resolves Blink WebRTC signaling with the canonical shared Ring identity
+  returned by the provider instead of reusing Blink's unrelated account ID.
+- Reconciles an encrypted stored identity when the provider rotates or corrects
+  it, while keeping identifiers and credentials out of logs and diagnostics.
+
+## 0.12.4
+
+- Relays the provider's terminal WebRTC event before closing the local socket,
+  preserving its safe numeric reason code for diagnostics and user feedback.
+- Records the provider close code in privacy-safe lifecycle telemetry without
+  logging device IDs, media negotiation payloads or credentials.
+
+## 0.12.3
+
+- Preserves provider heartbeat updates even when they do not produce a browser
+  event, preventing healthy WebRTC sessions from expiring after two pings.
+- Accepts the official pre-session close and microphone-override shapes while
+  continuing to reject mismatched session identities.
+- Adds value-free signaling lifecycle diagnostics without logging private
+  camera IDs, SDP, ICE candidates or credentials.
+
+## 0.12.1
+
+- Adds owner-bound browser WebRTC live sessions with independent speaker and
+  microphone controls, native SDP/ICE signaling and provider heartbeats.
+- Shares an exclusive per-camera lease with legacy live and recording paths,
+  plus a Vistoda-wide browser microphone lock shared with Ring.
+- Bounds negotiation, messages, candidates and teardown and fails closed on
+  unsupported Blink content encryption or microphone override cooldowns.
+
+## 0.11.0
+
+- Adds exact current-manifest USB clip deletion for administrators.
+- Shows the available-space percentage and compatible-media formatting behind
+  a destructive warning and exact typed confirmation.
+- Publishes the standalone archive's actual private add-on path to Vistoda.
+
+## 0.10.0
+
+- Adds server-paginated Blink local and Sync Module USB inventories.
+- Supports signed playback, download and Home Assistant-managed NFS backup of
+  provider-owned USB clips without modifying the source support.
+
+## 0.9.2
+
+- Install the process-level Ring crypto provider before the REST and native
+  WebSocket TLS clients coexist, preventing a signaling probe process abort.
+
+## 0.9.1
+
+- Trust the native `active` and `memory_full` Sync Module states even when
+  Blink's compatibility `enabled` flag lags behind.
+- Parse both numeric and string private Ring device IDs.
+- Build signaling identity from the shared `ringUserId` and return bounded,
+  secret-free WebSocket failure diagnostics without starting media.
+
+## 0.9.0
+
+- Adds read-only Sync Module USB status, clip inventory and authenticated
+  downloads without delete, eject, format or mount controls.
+- Adopts the current Blink v4 homescreen and its audio capability fields.
+- Adds a signaling-only WebRTC 4.1 authentication probe; full-duplex media
+  remains gated until SDP, ICE, uplink and recovery pass a live canary.
+
+## 0.8.0
+
+- Records finite 15–60 second standalone clips from the shared live stream.
+- Exposes a bounded, checksummed per-camera archive for Vistoda download,
+  deletion and Home Assistant-managed NFS backup.
+- Replaces the failing Blink cloud record action that produced false motion
+  notifications.
+
+## 0.7.0
+
+- Adds revision-checked native activity and privacy zone controls for verified
+  v1 cameras, with provider read-back and automatic rollback.
+- Exposes the Blink speaker-volume scale from 1 to 8 on supported Mini cameras.
+- Rejects unsupported Owl/Mini v2 zone schemas instead of showing fabricated
+  defaults.
+
+## 0.6.0
+
+- Adds model-aware camera name, IR, status LED, rotation, Photo Capture and
+  temperature-alert controls with provider read-back verification.
+- Preserves stable camera aliases across provider-side renames.
+- Corrects Mini clip and retrigger fields and reports unverified controls as
+  read-only.
+- Discovers the camera-specific activity-zone schema without exposing mask
+  values.
+
 ## 0.5.4
 
 - Matches the current native Blink REST request-header contract.

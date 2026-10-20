@@ -85,6 +85,13 @@ both `amd64` and `aarch64` manifests before its metadata version is published.
 The app network ports are private by default and no provider listener is
 published to the host.
 
+No app requests `host_network`, `privileged`, `full_access`, Docker API or
+device access. Only Vistoda Ring maps host folders: `addon_config`, `media` and
+`share` are mounted read-write because the user can select any of them as the
+local call-recording destination (`recording_storage`), and the app must write
+and retire verified files there. With the default `private` storage those maps
+stay unused. Blink and EZVIZ map no host folders.
+
 Release workflows build on native GitHub `amd64` and `aarch64` runners,
 apply Home Assistant architecture labels and sign both images and the generic
 manifest with keyless Cosign.

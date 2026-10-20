@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-readonly GITLEAKS_VERSION="8.24.3"
-readonly GITLEAKS_ARCHIVE_SHA256="9991e0b2903da4c8f6122b5c3186448b927a5da4deef1fe45271c3793f4ee29c"
+readonly GITLEAKS_VERSION="8.30.1"
+readonly GITLEAKS_ARCHIVE_SHA256="551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 if [[ "$(uname -s)" != "Linux" || "$(uname -m)" != "x86_64" ]]; then

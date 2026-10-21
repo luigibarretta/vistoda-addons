@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.24.0
+
+- A slow Blink sign-in server can no longer freeze motion, live view and
+  commands: sign-in requests now time out.
+- Media is downloaded only from Blink's own HTTPS servers.
+- While armed, motion polling recovers within two minutes after an error.
+- USB storage actions are recorded in the app log.
+- Security updates for the TLS libraries.
+
 ## 0.23.1
 
 - Stopping the app from Home Assistant now shows it as stopped instead of

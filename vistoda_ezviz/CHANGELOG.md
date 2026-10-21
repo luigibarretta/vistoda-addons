@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.11.0
+
+- Short EZVIZ cloud errors no longer make controls and arming unavailable:
+  the last known value is kept for up to ten minutes.
+- An EZVIZ session revoked by EZVIZ now asks you to sign in again in Home
+  Assistant instead of failing silently, and the app no longer restarts in a
+  loop when it cannot renew the session at startup.
+- Snapshots are downloaded only over HTTPS.
+- Security updates for the TLS libraries.
+
 ## 0.10.1
 
 - Stopping the app from Home Assistant now shows it as stopped instead of

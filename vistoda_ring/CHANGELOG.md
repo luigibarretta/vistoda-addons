@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.18.0
+
+- A dropped Ring notification connection now reconnects with the existing
+  registration instead of registering from scratch, so real-time calls come
+  back within seconds instead of minutes.
+- A stalled notification connection is detected and reopened automatically.
+- Ring's preferred registration format is remembered, avoiding a rejected
+  request on every renewal.
+- Security updates for the TLS libraries.
+
 ## 0.17.0
 
 - When Ring does not send an intercom call in real time, the call is now

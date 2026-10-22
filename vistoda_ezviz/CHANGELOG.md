@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.12.0
+
+- Diagnostics for the battery power state: the app log now records which
+  power and charging fields EZVIZ reports for each camera (field names once,
+  and the values of power-related fields when they change), to prepare a
+  "charging" entity. No secret is logged and no extra EZVIZ request is made.
+
 ## 0.11.0
 
 - Short EZVIZ cloud errors no longer make controls and arming unavailable:

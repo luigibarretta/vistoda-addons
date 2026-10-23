@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.13.2
+
+- Fix: since 0.11.0 a fresh camera snapshot failed with an internal error
+  whenever EZVIZ handed out its snapshot link over plain HTTP. Plain HTTP is
+  now accepted only for EZVIZ's own domains (`ezvizlife.com`, `ezvizru.com`,
+  `ezviz.com`); every other host still requires HTTPS, and no EZVIZ login or
+  session data is ever sent with these downloads.
+- Diagnostics: failed requests now log a short reason (scheme and host only,
+  never the full link) instead of just "upstream".
+
 ## 0.13.1
 
 - Diagnostics: the app log now also records which camera status fields change

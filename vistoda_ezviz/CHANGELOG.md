@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.13.1
+
+- Diagnostics: the app log now also records which camera status fields change
+  (for example when a door viewer is mounted on its door base), to find a
+  reliable "mounted" signal. Secret, identifying and volatile fields such as
+  addresses, network names, times and signal strength are never logged, and no
+  extra EZVIZ request is made.
+
 ## 0.13.0
 
 - Battery cameras now report whether they are charging and whether they run

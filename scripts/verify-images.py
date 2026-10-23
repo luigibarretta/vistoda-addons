@@ -7,6 +7,9 @@ import hashlib
 import json
 import re
 import subprocess
+import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -20,9 +23,33 @@ ACCEPT = ", ".join((
 ))
 
 
+RATE_LIMIT_WAIT_CAP = 900
+
+
+def rate_limit_wait(error: urllib.error.HTTPError, now: float) -> float | None:
+    """Seconds to wait for an anonymous GitHub rate limit, or None if not one."""
+    if error.code not in (403, 429) or error.headers.get("X-RateLimit-Remaining") != "0":
+        return None
+    reset = float(error.headers.get("X-RateLimit-Reset") or now + 60)
+    return max(1.0, reset - now + 1)
+
+
 def get(url: str, headers: dict | None = None):
-    request = urllib.request.Request(url, headers=headers or {})
-    return urllib.request.urlopen(request, timeout=30)
+    # Stays anonymous on purpose (it proves public availability); a shared
+    # runner IP can exhaust the anonymous quota, so wait for the reset GitHub
+    # announces instead of failing the release (catalog v0.4.34 failed so).
+    waited = 0.0
+    while True:
+        request = urllib.request.Request(url, headers=headers or {})
+        try:
+            return urllib.request.urlopen(request, timeout=30)
+        except urllib.error.HTTPError as error:
+            delay = rate_limit_wait(error, time.time())
+            if delay is None or waited + delay > RATE_LIMIT_WAIT_CAP:
+                raise
+            print(f"GitHub rate limit, retrying in {delay:.0f}s", file=sys.stderr)
+            time.sleep(delay)
+            waited += delay
 
 
 def source_revision(repository: str, tag: str) -> str:

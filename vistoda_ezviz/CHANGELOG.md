@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.0
+
+- Battery cameras now report whether they are charging and whether they run
+  on external power or on battery. The Vistoda integration 0.43.0 shows this
+  as a "Charging" sensor next to the battery level.
+
 ## 0.12.0
 
 - Diagnostics for the battery power state: the app log now records which

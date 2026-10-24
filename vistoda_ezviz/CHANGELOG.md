@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.15.1
+
+- The log now says why a recording or saved microSD clip failed (for
+  example "camera offline"), instead of failing silently.
+- SceneTrove's microSD import keeps going when one clip takes longer than it
+  waits, and picks that clip up on its next run.
+
 ## 0.15.0
 
 - microSD clips can be saved: pick a clip in the camera's microSD list in

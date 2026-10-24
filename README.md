@@ -102,6 +102,12 @@ local call-recording destination (`recording_storage`), and the app must write
 and retire verified files there. With the default `private` storage those maps
 stay unused. Blink and EZVIZ map no host folders.
 
+Vistoda Ring ships a custom least-privilege AppArmor profile
+([`vistoda_ring/apparmor.txt`](vistoda_ring/apparmor.txt)): the root bootstrap
+may only touch app data and the selectable recording folders, and the provider
+runs in a confined child profile without capabilities. Supervisor applies the
+profile when the app is installed or updated.
+
 Release workflows build on native GitHub `amd64` and `aarch64` runners,
 apply Home Assistant architecture labels and sign both images and the generic
 manifest with keyless Cosign.

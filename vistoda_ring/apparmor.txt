@@ -1,0 +1,130 @@
+#include <tunables/global>
+
+# Least-privilege AppArmor profile for the Vistoda Ring app.
+#
+# Supervisor renames this top-level profile to the installed slug (for example
+# 10aad50a_vistoda_ring), so peer rules match on the "*vistoda_ring" suffix.
+#
+# Process tree inside the container (Debian bookworm-slim, no s6-overlay,
+# init: false):
+#   /usr/local/bin/vistoda-app-run (root, /bin/sh = dash)  -> this profile
+#     jq, curl and coreutils for options, storage migration and discovery
+#     gosu bridge:bridge ring-intercom-bridge serve        -> child "ring"
+# The Docker health check (curl to 127.0.0.1:8775) runs in this profile too.
+
+profile vistoda_ring flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+
+  # Root bootstrap only: hand /data and the recording folder to the bridge
+  # user (chown, chmod, cp -p), read and migrate files inside 0700 bridge-owned
+  # folders (dac_*), drop privileges with gosu (setuid, setgid) and stop the
+  # bridge, which runs under another UID (kill).
+  capability chown,
+  capability dac_override,
+  capability dac_read_search,
+  capability fowner,
+  capability kill,
+  capability setgid,
+  capability setuid,
+  # chmod on bridge-owned files asks for fsetid to keep a setgid bit; no file
+  # here needs one, so refuse it without audit noise.
+  deny capability fsetid,
+
+  # Docker/Supervisor stop requests (runc is confined on some hosts); the bootstrap stops and probes its child
+  # and its own subshells.
+  signal (receive) peer={unconfined,runc},
+  signal (send, receive) peer=*vistoda_ring,
+  signal (send) peer=*vistoda_ring//ring,
+
+  # Supervisor API (http://supervisor), local health check and DNS.
+  network inet stream,
+  network inet6 stream,
+  network inet dgram,
+  network inet6 dgram,
+  unix (create, getattr, getopt, setopt, shutdown) type=stream addr=none,
+  unix (read, write, send, receive) type=stream addr=none peer=(addr=none),
+
+  # Bootstrap scripts and the exact helper binaries they run.
+  /usr/local/bin/vistoda-app-run r,
+  /usr/local/lib/vistoda-app-bootstrap r,
+  /usr/local/lib/vistoda-recording-storage r,
+  /usr/local/lib/vistoda-device-config r,
+  /usr/bin/dash rix,
+  /usr/bin/{cat,chmod,chown,cmp,cp,curl,grep,jq,mkdir,mv,od,rm,rmdir,sleep,stat,tr,wc} rix,
+  /usr/sbin/gosu rix,
+
+  # The provider runs confined in its own child profile.
+  /usr/local/bin/ring-intercom-bridge rcx -> ring,
+
+  # Name service, users and the OpenSSL configuration curl loads.
+  /etc/{passwd,group,nsswitch.conf,hosts,host.conf,resolv.conf,gai.conf} r,
+  /etc/ssl/openssl.cnf r,
+  /etc/ssl/certs/{,**} r,
+  /usr/share/ca-certificates/{,**} r,
+
+  # App state: options, token, device bindings, storage marker, recordings.
+  /data/ rw,
+  /data/** rw,
+
+  # User-selectable recording destinations (recording_storage); the bootstrap
+  # creates, migrates and retires verified archives here.
+  /config/ r,
+  /config/recordings/{,**} rw,
+  /media/ r,
+  /media/vistoda-ring/{,**} rw,
+  /media/*/ r,
+  /media/*/vistoda-ring/{,**} rw,
+  /share/ r,
+  /share/vistoda-ring/{,**} rw,
+  /share/*/ r,
+  /share/*/vistoda-ring/{,**} rw,
+
+  /dev/tty rw,
+  @{PROC}/@{pid}/{maps,stat,status} r,
+
+  profile ring flags=(attach_disconnected,mediate_deleted) {
+    #include <abstractions/base>
+
+    # No capabilities: the bridge runs as the unprivileged bridge user.
+
+    signal (receive) peer={unconfined,runc},
+    signal (receive) peer=*vistoda_ring,
+    signal (send, receive) peer=*vistoda_ring//ring,
+
+    # Ring cloud HTTPS and WebSocket, Firebase/MCS push (TCP 5228), WebRTC
+    # ICE/STUN/DTLS/SRTP over UDP, the private API on 8775 and DNS.
+    network inet stream,
+    network inet6 stream,
+    network inet dgram,
+    network inet6 dgram,
+    # Interface enumeration for ICE host candidates (getifaddrs).
+    network netlink raw,
+    # Tokio signal and wake-up pairs are anonymous socket pairs.
+    unix (create, getattr, getopt, setopt, shutdown) type=stream addr=none,
+    unix (read, write, send, receive) type=stream addr=none peer=(addr=none),
+
+    /usr/local/bin/ring-intercom-bridge rm,
+
+    /etc/{passwd,group,nsswitch.conf,hosts,host.conf,resolv.conf,gai.conf} r,
+    /etc/ssl/certs/{,**} r,
+    /usr/share/ca-certificates/{,**} r,
+
+    # Session, push registration, token and device files (atomic rename).
+    /data/ r,
+    /data/** rw,
+
+    # Recording destinations, mirrored from the bootstrap rules above.
+    /config/recordings/{,**} rw,
+    /media/vistoda-ring/{,**} rw,
+    /media/*/vistoda-ring/{,**} rw,
+    /share/vistoda-ring/{,**} rw,
+    /share/*/vistoda-ring/{,**} rw,
+
+    # Runtime introspection by the Rust standard library and Tokio.
+    @{PROC}/@{pid}/{maps,stat,status,cgroup,mountinfo} r,
+    @{PROC}/@{pid}/task/[0-9]*/comm rw,
+    @{PROC}/sys/net/core/somaxconn r,
+    /sys/fs/cgroup/{,**} r,
+    /sys/devices/system/cpu/{,**} r,
+  }
+}

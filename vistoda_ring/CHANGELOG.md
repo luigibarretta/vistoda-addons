@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.18.1
+
+- The app now runs under its own AppArmor profile instead of the generic
+  container profile. It may only read and write its own data, the recording
+  folder you select and the files it needs to start, so Home Assistant shows
+  a higher security rating.
+- Security updates for the async runtime.
+
 ## 0.18.0
 
 - A dropped Ring notification connection now reconnects with the existing

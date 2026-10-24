@@ -11,7 +11,7 @@ APPS = ("vistoda_blink", "vistoda_ezviz", "vistoda_ring")
 EXPECTED_VERSIONS = {
     "vistoda_blink": "0.24.1",
     "vistoda_ezviz": "0.15.1",
-    "vistoda_ring": "0.18.0",
+    "vistoda_ring": "0.18.1",
 }
 IMAGE = re.compile(r"^image: ghcr\.io/luigibarretta/vistoda-[a-z]+-addon$", re.MULTILINE)
 VERSION = re.compile(r"^version: [0-9]+\.[0-9]+\.[0-9]+$", re.MULTILINE)
@@ -61,6 +61,7 @@ def check_app(name: str) -> None:
         )
         for mount in ("addon_config", "media", "share"):
             require(f"  - type: {mount}\n    read_only: false" in config, f"{mount} RW map missing")
+        check_apparmor(directory)
     if name == "vistoda_ezviz":
         require("cameras: []" in config, "EZVIZ legacy single-device default missing")
         require("camera_serial: match(^[A-Za-z0-9]*$)" in config, "EZVIZ legacy serial must be optional")
@@ -73,6 +74,20 @@ def check_app(name: str) -> None:
             (directory / "translations" / f"{language}.yaml").is_file(),
             f"{name}: {language} translation missing",
         )
+
+
+def check_apparmor(directory: Path) -> None:
+    """Supervisor renames the single top-level profile to the installed slug."""
+    profile = (directory / "apparmor.txt").read_text(encoding="utf-8")
+    names = re.findall(r"^profile ([^ ]+)", profile, re.MULTILINE)
+    require(names == [directory.name], f"{directory.name}: apparmor.txt profile name drift")
+    require("apparmor: false" not in (directory / "config.yaml").read_text(encoding="utf-8"),
+            f"{directory.name}: AppArmor must stay enabled")
+    # The provider runs in a confined child profile and the root bootstrap
+    # never gets blanket file access.
+    require("rcx -> ring," in profile, f"{directory.name}: provider child profile missing")
+    require(re.search(r"^\s*file,", profile, re.MULTILINE) is None,
+            f"{directory.name}: blanket file access")
 
 
 def check_loc() -> None:

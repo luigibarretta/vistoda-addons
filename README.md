@@ -29,7 +29,7 @@ unsupported provider features.
 | --- | --- | --- |
 | Ring | Selected intercom controls/history, audio and local recordings | Experimental consumer APIs; vendor changes can affect operation. Physical actions require an exact device binding. |
 | Blink | Walnut/IMMI live, snapshots, clips and supported settings/storage | Voice requires a supported audio offer; duplex additionally requires camera/browser AEC and hardware validation. Cayuga remains disabled by provider policy. Capabilities vary by model. |
-| EZVIZ | Snapshots, live/local recordings and limited encrypted RTP compatibility | No claim of universal encrypted-camera compatibility. Talk and camera microSD remain unavailable pending a usable Open Platform integration. |
+| EZVIZ | Snapshots, live/local recordings, saved microSD clips and limited encrypted RTP compatibility | No claim of universal encrypted-camera compatibility. Talk remains unavailable pending a usable Open Platform integration. |
 | Apple | Separate companion project | Excluded from this release and its readiness claims. |
 
 Home Assistant support starts at **2026.8.0**; integration runtime CI also tests

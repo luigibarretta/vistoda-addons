@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.15.0
+
+- microSD clips can be saved: pick a clip in the camera's microSD list in
+  Vistoda (Home Assistant integration 0.44+) and it is stored as a local
+  recording, with playback, download and network backup like any other. It
+  wakes the camera like live view and is refused while live view is open.
+- SceneTrove can import microSD clips (`scenetrove-pull --sd-day`), named
+  after the time they were recorded.
+- A battery camera that does not answer the cloud (EZVIZ result 5405) now
+  reports "camera offline" and gets the 30-second pause, instead of a generic
+  error and an immediate retry.
+
 ## 0.14.0
 
 - Cameras that send RTP (models other than the CP4, or any camera with video

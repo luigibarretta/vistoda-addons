@@ -8,6 +8,16 @@ Assistant OS and Home Assistant Supervised. Install only the providers you use:
 - **Vistoda Ring** for Ring Intercom controls, full-duplex audio and local
   recordings.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/luigibarretta/vistoda-home-assistant/main/docs/images/overview.png" alt="Vistoda overview in Home Assistant with Ring, Blink and EZVIZ cards" width="92%">
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/luigibarretta/vistoda-home-assistant/main/docs/images/ring.png" alt="Ring Intercom page" width="31%">
+  <img src="https://raw.githubusercontent.com/luigibarretta/vistoda-home-assistant/main/docs/images/blink-camera.png" alt="Blink camera page" width="31%">
+  <img src="https://raw.githubusercontent.com/luigibarretta/vistoda-home-assistant/main/docs/images/ezviz.png" alt="EZVIZ door viewer page" width="31%">
+</p>
+<p align="center"><sub>What these apps power: the Vistoda panel in Home Assistant. Camera images are blurred.</sub></p>
+
 New installation: **[follow the English setup guide](GETTING_STARTED.md)** or
 the **[guida italiana](GETTING_STARTED.it.md)**. The
 [compatibility matrix](COMPATIBILITY.md) lists the exact tested versions and

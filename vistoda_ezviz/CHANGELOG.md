@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.14.0
+
+- Cameras that send RTP (models other than the CP4, or any camera with video
+  encryption on) now play at their real frame rate instead of an assumed
+  25 fps, and keep their sound: the camera's AAC audio is carried into Home
+  Assistant instead of being dropped.
+- Cameras that send RTP without encryption (reported for the CS-C8c) now play
+  instead of producing no picture.
+- Battery cameras: a live session that stops receiving video is closed after
+  the upstream timeout instead of staying open, and the camera is left alone
+  for 30 seconds before the next session, so a viewer that reconnects at once
+  does not wake it straight away. Live view reports "camera offline" meanwhile.
+
 ## 0.13.2
 
 - Fix: since 0.11.0 a fresh camera snapshot failed with an internal error

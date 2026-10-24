@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.24.1
+
+- Packaging only: the integration ships its Vistoda icon in the sizes Home
+  Assistant asks for, and the repository is validated for the HACS default
+  list. No behaviour change.
+
 ## 0.24.0
 
 - A slow Blink sign-in server can no longer freeze motion, live view and

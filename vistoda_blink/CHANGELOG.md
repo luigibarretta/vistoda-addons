@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.24.2
+
+- Packaging only: rebuilt after the shared release checks, with a Tokio
+  patch update. No behaviour change.
+
 ## 0.24.1
 
 - Packaging only: the integration ships its Vistoda icon in the sizes Home

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.15.3
+
+- The charging sensor now turns on while the camera recharges from a low
+  battery; before, it showed as unavailable until the battery was full.
+
+## 0.15.2
+
+- SceneTrove's microSD import stops at the first clip that finds the camera
+  asleep and retries on its next run, instead of using up the clip's retries.
+
 ## 0.15.1
 
 - The log now says why a recording or saved microSD clip failed (for

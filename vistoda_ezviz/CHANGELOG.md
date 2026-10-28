@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.15.4
+
+- A fully charged camera that is still plugged in now shows as not charging,
+  with external power as its power source.
+
 ## 0.15.3
 
 - The charging sensor now turns on while the camera recharges from a low

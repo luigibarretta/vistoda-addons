@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.17.1
+
+- Lowering the number of events kept now removes the oldest ones from disk
+  and from Home Assistant backups at the next start, as described.
+
 ## 0.17.0
 
 - Puoi scegliere quanti eventi conservare per ogni telecamera (50–2000) e

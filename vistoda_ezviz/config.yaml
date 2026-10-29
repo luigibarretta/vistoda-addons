@@ -1,5 +1,5 @@
 name: Vistoda EZVIZ
-version: 0.16.0
+version: 0.17.0
 slug: vistoda_ezviz
 description: EZVIZ snapshots, live media and standalone recordings
 url: https://github.com/luigibarretta/vistoda-ezviz
@@ -21,6 +21,8 @@ options:
   camera_channel: 1
   substream: false
   cameras: []
+  alarm_history_limit: 200
+  alarm_picture_budget_mib: 256
 schema:
   alias: match(^[A-Za-z0-9_-]+$)
   camera_serial: match(^[A-Za-z0-9]*$)
@@ -33,4 +35,6 @@ schema:
       channel: int(1,256)
       substream: bool
       verification_code: password?
+  alarm_history_limit: int(50,2000)
+  alarm_picture_budget_mib: int(64,2048)
 image: ghcr.io/luigibarretta/vistoda-ezviz-addon

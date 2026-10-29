@@ -45,3 +45,16 @@ Compila **Più telecamere** con alias distinti e coppie seriale/canale distinte.
 Home Assistant propone una entry per camera; Vistoda le mostra nella page-view
 senza generare snapshot all'apertura. I campi singoli restano compatibili con
 le installazioni esistenti.
+
+## Storico eventi
+
+L'app conserva per ogni telecamera gli ultimi eventi con la loro immagine:
+200 di default, da 50 a 2000 con **Eventi conservati per telecamera**. Le
+immagini di tutte le telecamere condividono **Spazio massimo per le immagini**
+(256 MiB di default, da 64 a 2048): quando è pieno spariscono le immagini più
+vecchie, mentre gli eventi restano senza immagine.
+
+Eventi e immagini stanno sul disco di Home Assistant e finiscono nei suoi
+backup: valori alti fanno crescere entrambi. Se abbassi il numero di eventi,
+quelli più vecchi vengono eliminati al prossimo avvio. Per uno storico lungo
+usa l'archivio eventi di Vistoda su un'unità di rete, oppure SceneTrove.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.17.0
+
+- Puoi scegliere quanti eventi conservare per ogni telecamera (50–2000) e
+  quanto spazio usare per le loro immagini (64–2048 MiB), con le avvertenze
+  su disco e backup di Home Assistant.
+
 ## 0.16.0
 
 - The full event history kept by the app can be browsed page by page from

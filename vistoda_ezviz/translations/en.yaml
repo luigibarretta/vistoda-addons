@@ -17,5 +17,11 @@ configuration:
   cameras:
     name: Multiple cameras
     description: Optional list of 1–64 cameras. When populated, it replaces the single alias, serial, channel and stream fields.
+  alarm_history_limit:
+    name: Events kept per camera
+    description: "How many events to keep for each camera (50–2000). Events and pictures are stored on Home Assistant's own disk and included in its backups. For a long history use the Vistoda event archive on network storage, or SceneTrove. Lowering the value deletes the oldest events at the next start."
+  alarm_picture_budget_mib:
+    name: Maximum picture storage (MiB)
+    description: "Total space for event pictures of all cameras (64–2048 MiB), split evenly. When full, the oldest pictures are deleted; the events stay, without a picture. It also counts towards the size of Home Assistant backups."
 network:
   8765/tcp: Private Vistoda EZVIZ API

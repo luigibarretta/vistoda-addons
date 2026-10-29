@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.0
+
+- The full event history kept by the app can be browsed page by page from
+  Home Assistant (Vistoda integration 0.47.0 or later), not only the newest
+  50 events.
+
 ## 0.15.4
 
 - A fully charged camera that is still plugged in now shows as not charging,

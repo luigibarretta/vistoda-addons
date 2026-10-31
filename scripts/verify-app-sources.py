@@ -21,7 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "contracts" / "source-guards.json"
 SOURCE_SUFFIXES = {".rs", ".py", ".sh", ".js", ".mjs", ".jq"}
-COMMENT = re.compile(r"^\s*(//|#|/\*|\*)")
+# Line, doc and block comments; `*value = …` (a dereference) stays code.
+COMMENT = re.compile(r"^\s*(//|#|/\*|\*/|\*(\s|$))")
 
 
 def code_lines(path: Path) -> list[str]:
@@ -39,7 +40,7 @@ def check_tree(app: str, root: Path, rules: list[dict]) -> list[str]:
         pattern, allowed = rule["pattern"], set(rule.get("allowed_files", []))
         for path in files:
             relative = path.relative_to(root).as_posix()
-            if relative.endswith("_tests.rs") or "/tests" in relative:
+            if path.name == "tests.rs" or path.name.endswith("_tests.rs"):
                 continue
             lines = code_lines(path)
             if not any(pattern in line for line in lines):

@@ -7,9 +7,9 @@
 
 ## 0.17.0
 
-- Puoi scegliere quanti eventi conservare per ogni telecamera (50–2000) e
-  quanto spazio usare per le loro immagini (64–2048 MiB), con le avvertenze
-  su disco e backup di Home Assistant.
+- Choose how many events to keep per camera (50–2000) and how much space their
+  pictures may use (64–2048 MiB), with notes on Home Assistant disk use and
+  backups.
 
 ## 0.16.0
 

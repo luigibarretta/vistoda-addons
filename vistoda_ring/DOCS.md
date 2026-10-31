@@ -67,8 +67,8 @@ storage** selects where local calls live:
 `share` is local Home Assistant storage by default; it is not an NFS or Samba
 share by itself. `addon_config` is the app-owned folder mounted as `/config`
 inside Vistoda and exposed to users at
-`/addon_configs/10aad50a_vistoda_ring`. It is useful for file access and is
-included in the app backup.
+`/addon_configs/<app slug>`. It is useful for file access and is included in
+the app backup.
 
 For network storage, first use **Settings > System > Storage > Add network
 storage** and choose NFS or Samba plus usage **Media** or **Share**. Then select
@@ -76,6 +76,10 @@ storage** and choose NFS or Samba plus usage **Media** or **Share**. Then select
 for example `/media/ring-archive` or `/share/ring-archive`. Vistoda writes into
 the `vistoda-ring` subfolder. It verifies that the named path is a live mount;
 an absent mount fails closed instead of silently writing to local disk.
+
+Whatever the storage, network included, recordings older than 30 days, or the
+oldest ones beyond 512 MiB, are deleted automatically: copy recordings you want
+to keep elsewhere.
 
 Changing the selection copies and verifies every generated archive file before
 removing it from the previous destination. A conflict stops the app without
@@ -86,22 +90,6 @@ disabled devices, and legacy root files. All copies are checked before any
 source is retired. Conflicting files, symlinks or unknown subdirectories stop
 migration and preserve source data. A failed migration leaves the old storage
 selection marker active; resolve the conflict before retrying.
-
-## Più citofoni
-
-Lascia **Citofoni** vuoto anche con più ingressi: completa login/SMS e scegli
-il citofono reale per nome e posizione. Gli alias `intercom-<id>` sono automatici
-e Home Assistant propone gli altri ingressi, senza copiare ID. La lista manuale
-serve solo per alias personalizzati avanzati con ID verificati; gli ID
-dell'esempio non sono reali. Seleziona sempre l'ingresso in Vistoda: apertura,
-cronologia e audio restano associati allo stesso citofono.
-
-Gli archivi esplicitamente associati sono salvati in `device-<id>`: rinominare
-l'alias conserva i file, assegnare un altro ID apre un archivio diverso. I file
-del vecchio archivio senza identità rimangono nella radice; esportali prima del
-passaggio. La modifica della destinazione copia e verifica tutte le directory
-prima di ritirare i sorgenti. Conflitti e collegamenti simbolici bloccano la
-migrazione, senza eliminare i file sorgenti.
 
 Home Assistant receives only a private workload token through Supervisor
 discovery. The token, bridge URL and port are not user configuration fields.

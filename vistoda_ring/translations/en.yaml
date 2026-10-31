@@ -12,10 +12,12 @@ configuration:
     name: Recording storage
     description: >-
       Use private for /data/recordings (private and included in app backups);
-      addon_config for /addon_configs/10aad50a_vistoda_ring/recordings; media for
+      addon_config for /addon_configs/<app slug>/recordings; media for
       /media/vistoda-ring; or share for /share/vistoda-ring. Media and share are
       local and do not become NFS/Samba by themselves. Use network for storage
       mounted by Home Assistant OS. Existing files migrate with verification.
+      On every storage, recordings older than 30 days or beyond 512 MiB are
+      deleted automatically.
   recording_network_mount:
     name: HAOS network storage path
     description: >-

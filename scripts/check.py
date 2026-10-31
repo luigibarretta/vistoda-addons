@@ -35,7 +35,8 @@ def check_app(name: str) -> None:
     require(IMAGE.search(config) is not None, f"{name}: invalid image")
     require("  - amd64\n  - aarch64\n" in config, f"{name}: multiarch missing")
     require("hassio_api: true" in config, f"{name}: Supervisor discovery unavailable")
-    require("tcp: null" in config, f"{name}: provider port must stay private")
+    ports = re.findall(r"^  [0-9]+/tcp: (\S+)$", config, re.MULTILINE)
+    require(ports and all(port == "null" for port in ports), f"{name}: provider ports must stay private")
     require((directory / "DOCS.md").is_file(), f"{name}: DOCS.md missing")
     for asset, expected_size in (("icon.png", 128), ("logo.png", 300)):
         image = (directory / asset).read_bytes()
@@ -64,16 +65,28 @@ def check_app(name: str) -> None:
         check_apparmor(directory)
     if name == "vistoda_ezviz":
         require("cameras: []" in config, "EZVIZ legacy single-device default missing")
-        require("camera_serial: match(^[A-Za-z0-9]*$)" in config, "EZVIZ legacy serial must be optional")
+        require("camera_serial: match(^[A-Za-z0-9]{0,64}$)" in config, "EZVIZ legacy serial must be optional")
         require("camera_channel: int(1,256)" in config, "EZVIZ channel must be bounded")
         require("substream: bool" in config, "EZVIZ substream option missing")
         require("alias: match(^[A-Za-z0-9_-]{1,64}$)" in config, "EZVIZ camera aliases must be bounded")
-        require("serial: match(^[A-Za-z0-9]+$)" in config, "EZVIZ list serial must be non-empty")
+        require("serial: match(^[A-Za-z0-9]{1,64}$)" in config, "EZVIZ list serial must be non-empty")
+    options = top_level_keys(config, "schema")
     for language in ("en", "it"):
-        require(
-            (directory / "translations" / f"{language}.yaml").is_file(),
-            f"{name}: {language} translation missing",
-        )
+        translation = directory / "translations" / f"{language}.yaml"
+        require(translation.is_file(), f"{name}: {language} translation missing")
+        text = translation.read_text(encoding="utf-8")
+        for option in options:
+            block = re.search(rf"^  {option}:\n((?:    .*\n)+)", text, re.MULTILINE)
+            require(
+                block is not None and "name:" in block.group(1) and "description:" in block.group(1),
+                f"{name}: {language} translation lacks {option}",
+            )
+
+
+def top_level_keys(text: str, section: str) -> list[str]:
+    """Option names directly under a top-level YAML mapping such as `schema:`."""
+    block = re.search(rf"^{section}:\n((?:(?:  |\n).*\n?)*)", text, re.MULTILINE)
+    return re.findall(r"^  ([a-z_]+):", block.group(1), re.MULTILINE) if block else []
 
 
 def check_apparmor(directory: Path) -> None:

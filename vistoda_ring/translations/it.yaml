@@ -12,10 +12,12 @@ configuration:
     name: Archivio registrazioni
     description: >-
       Scegli private per /data/recordings (privato e incluso nei backup dell'app);
-      addon_config per /addon_configs/10aad50a_vistoda_ring/recordings; media per
+      addon_config per /addon_configs/<app slug>/recordings; media per
       /media/vistoda-ring; share per /share/vistoda-ring. Media e share sono locali:
       non diventano NFS/Samba da soli. Scegli network per un archivio di rete montato
       da Home Assistant OS. I file esistenti vengono migrati con verifica.
+      Su ogni archivio le registrazioni più vecchie di 30 giorni o oltre 512 MiB
+      vengono eliminate automaticamente.
   recording_network_mount:
     name: Percorso network storage HAOS
     description: >-

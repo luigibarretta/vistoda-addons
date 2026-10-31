@@ -39,22 +39,21 @@ paginated playback, download, confirmed deletion and verified NFS backup are
 managed through Home Assistant. Playback is remuxed to browser-compatible MP4
 on demand and does not create a duplicate recording.
 
-## Più telecamere
+## Device verification code
 
-Compila **Più telecamere** con alias distinti e coppie seriale/canale distinte.
-Home Assistant propone una entry per camera; Vistoda le mostra nella page-view
-senza generare snapshot all'apertura. I campi singoli restano compatibili con
-le installazioni esistenti.
+Leave **Device verification code** empty in normal use: Vistoda reads the key
+from the EZVIZ account. Enter the six-letter code printed on the camera label
+only if the live view of an encrypted camera fails; it stays private and never
+enters the camera list or the logs. With **Multiple cameras**, set it per item.
 
-## Storico eventi
+## Event history
 
-L'app conserva per ogni telecamera gli ultimi eventi con la loro immagine:
-200 di default, da 50 a 2000 con **Eventi conservati per telecamera**. Le
-immagini di tutte le telecamere condividono **Spazio massimo per le immagini**
-(256 MiB di default, da 64 a 2048): quando è pieno spariscono le immagini più
-vecchie, mentre gli eventi restano senza immagine.
+The app keeps the newest events of each camera with their pictures: 200 by
+default, 50 to 2000 with **Events kept per camera**. Pictures of all cameras
+share **Maximum picture storage** (256 MiB by default, 64 to 2048); when it is
+full the oldest pictures go, while their events stay without a picture.
 
-Eventi e immagini stanno sul disco di Home Assistant e finiscono nei suoi
-backup: valori alti fanno crescere entrambi. Se abbassi il numero di eventi,
-quelli più vecchi vengono eliminati al prossimo avvio. Per uno storico lungo
-usa l'archivio eventi di Vistoda su un'unità di rete, oppure SceneTrove.
+Events and pictures live on Home Assistant's own disk and are included in its
+backups, so high values grow both. Lowering the number of events deletes the
+oldest ones at the next start. For a long history use the Vistoda event archive
+on network storage, or SceneTrove.

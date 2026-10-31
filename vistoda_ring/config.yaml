@@ -27,7 +27,7 @@ options:
   intercoms: []
   recording_storage: private
 schema:
-  alias: match(^[A-Za-z0-9_-]+$)
+  alias: match(^[A-Za-z0-9_-]{1,64}$)
   intercoms:
     - alias: match(^[A-Za-z0-9_-]{1,64}$)
       device_id: int(1,9007199254740991)

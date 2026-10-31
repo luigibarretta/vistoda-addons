@@ -59,6 +59,14 @@ class SourceGuardTests(unittest.TestCase):
         errors = self.check({"src/transport/device.rs": 'let p = "v3/devices/encryptedInfo/risk";'})
         self.assertTrue(any("encryptedInfo/risk" in error for error in errors))
 
+    def test_production_files_named_like_tests_are_checked(self):
+        errors = self.check({"src/tests_util.rs": 'let u = format!("https://{}/api/device/query/encryptkey", a);'})
+        self.assertTrue(any("outside its guard" in error for error in errors))
+
+    def test_dereferencing_lines_are_code_not_comments(self):
+        errors = self.check({"src/transport/client.rs": '    *url = format!("https://{}/api/device/query/encryptkey", a);'})
+        self.assertTrue(any("outside its guard" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

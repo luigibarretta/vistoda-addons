@@ -36,10 +36,11 @@ Module USB storage. Download, confirmed deletion and verified NFS backup are
 managed from the Vistoda camera page through Home Assistant. The Sync Module
 USB archive has a separate paginated list with playback, download and
 checksum-verified NFS copy. Administrators may delete selected exact clips or
-format compatible media only after the explicit destructive confirmation;
-The panel reports Sync Module firmware, status and storage used. Wi-Fi migration,
-safe eject and Sync Module removal are visibly unavailable and have no provider
-route. Vistoda does not expose mount operations.
+format compatible media only after the explicit destructive confirmation.
+The panel reports Sync Module firmware, status and storage used. Administrators
+can safely eject the USB drive and mount it again from the panel; this path has
+not yet been verified on a live drive. Wi-Fi migration and Sync Module removal
+remain unavailable.
 
 The app API remains private to the Supervisor network. Do not publish port
 8099 unless an advanced external consumer has a separately reviewed need.

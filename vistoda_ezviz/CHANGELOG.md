@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.17.2
+
+- A camera found asleep no longer stops the microSD day import at that clip.
+- Failed recordings no longer pile up, and the recording quota now accounts
+  for recordings still being written, so parallel captures cannot exceed it.
+- Basic authentication is accepted only for the Generic Camera snapshot and
+  live stream; the EZVIZ sign-in address always uses HTTPS.
+- A lowered picture budget and negative limits are applied safely at start.
+
 ## 0.17.1
 
 - Lowering the number of events kept now removes the oldest ones from disk

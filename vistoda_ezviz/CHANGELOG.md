@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.17.3
+
+- Saving alarm history and pictures no longer pauses the app while storage is
+  slow.
+
 ## 0.17.2
 
 - A camera found asleep no longer stops the microSD day import at that clip.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.24.3
+
+- Storage logs show a short fingerprint instead of Blink network and sync
+  module ids.
+- The integration ships English texts, so its setup screens are complete in
+  every language.
+
 ## 0.24.2
 
 - Packaging only: rebuilt after the shared release checks, with a Tokio

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.26.0
+
+- The app stores and writes its private files (Blink sign-in, aliases,
+  recording journal) through the shared Vistoda provider code. Existing sign-ins
+  keep working; you do not need to sign in again.
+- Integration fixes from the Home Assistant community store review.
+
 ## 0.24.3
 
 - Storage logs show a short fingerprint instead of Blink network and sync

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.18.0
+
+- Your EZVIZ sign-in is now stored encrypted in the app's data folder, with a
+  key kept next to it, instead of as a plain file. The app converts the old
+  file on first start; you do not need to sign in again.
+- Going back to an older version after this update needs a new sign-in.
+
 ## 0.17.3
 
 - Saving alarm history and pictures no longer pauses the app while storage is
